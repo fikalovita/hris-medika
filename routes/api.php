@@ -61,3 +61,4 @@ Route::delete('/delete_pegawai_lvl', [PegawaiLvlController::class, 'destroy']);
 Route::get('/pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'index']);
 Route::post('/add_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'store']);
 Route::put('/detail_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'show']);
+

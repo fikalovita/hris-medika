@@ -50,8 +50,17 @@ class PegawaiJnsKaryawanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request) {
-        
+    public function update(Request $request)
+    {
+        $kd_jns_karyawan = $request->kd_jns_karyawan;
+        $validate = $request->validate([
+            'nm_jns_karyawan' => 'required'
+        ]);
+
+        $jnsKaryawan = PegawaiJnsKaryawan::find($kd_jns_karyawan);
+        $jnsKaryawan->update([
+            'nm_jns_karyawan' => $validate['nm_jns_karyawan']
+        ]);
     }
     /**
      * Remove the specified resource from storage.
