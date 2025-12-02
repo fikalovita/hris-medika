@@ -76,24 +76,23 @@
                     <div class="row g-3">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-label">Name:</label>
+                                <label class="form-label">NRP</label>
                                 <input type="email" class="form-control" placeholder="Enter full name">
                                 <small class="form-text text-muted">Please enter your full name</small>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-label">Email:</label>
-                                <input type="email" class="form-control" placeholder="Enter email">
+                                <label class="form-label">Nama Depan</label>
+                                <input type="text" class="form-control" placeholder="Enter email">
                                 <small class="form-text text-muted">Please enter your email</small>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-label">Password:</label>
+                                <label class="form-label">Nama Belakang:</label>
                                 <div class="input-group">
-                                    <span class="input-group-text"><i class="feather icon-lock"></i></span>
-                                    <input type="password" class="form-control" placeholder="Enter Password">
+                                    <input type="text" class="form-control" placeholder="Enter Password">
                                 </div>
                                 <small class="form-text text-muted">Please enter your Password</small>
                             </div>
@@ -102,55 +101,146 @@
                     <div class="row g-3">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-label">Contact:</label>
-                                <input type="email" class="form-control" placeholder="Enter contact number">
-                                <small class="form-text text-muted">Please enter your contact</small>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="form-group">
-                                <label class="form-label">Profile URL:</label>
-                                <div class="input-group search-form">
-                                    <input type="text" class="form-control" placeholder="Profile URL">
-                                    <span class="input-group-text bg-transparent"><i class="feather icon-link"></i></span>
-                                </div>
+                                <label class="form-label">Pekerja Aktif:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>Ya</option>
+                                    <option>Tidak</option>
+                                </select>
                                 <small class="form-text text-muted">Please enter Profile URL</small>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-label">Pin code:</label>
-                                <input type="text" class="form-control" placeholder="Enter your Pin code">
-                                <small class="form-text text-muted">Please enter your Pin code</small>
+                                <label class="form-label">Jenis Kelamin:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>Laki-Laki</option>
+                                    <option>Perempuan</option>
+                                </select>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Negara Kelahiran</label>
+                                <input type="text" class="form-control" placeholder="Enter your address">
+                                <small class="form-text text-muted">Please enter your address</small>
                             </div>
                         </div>
                     </div>
                     <div class="row g-3">
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-label">Address:</label>
+                                <label class="form-label">Kota Kelahiran</label>
                                 <input type="text" class="form-control" placeholder="Enter your address">
                                 <small class="form-text text-muted">Please enter your address</small>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-label">User Type:</label>
-                                <div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" id="customRadioInline221" name="customRadioInline1"
-                                            class="form-check-input" checked>
-                                        <label class="form-check-label"
-                                            for="customRadioInline221">Administrator</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input type="radio" id="customRadioInline222" name="customRadioInline1"
-                                            class="form-check-input">
-                                        <label class="form-check-label" for="customRadioInline222">Author</label>
-                                    </div>
+                                <label class="form-label">Tanggal Lahir</label>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control"
+                                        id="pc-datepicker-3" placeholder="Pilih Tanggal">
+                                    <span class="input-group-text">
+                                        <i class="feather icon-calendar"></i>
+                                    </span>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Usia</label>
+                                <input type="number" class="form-control">
+                                <small class="form-text text-muted">Please enter your address</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Kelompok Umur:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>10-20</option>
+                                    <option>20-25</option>
+                                </select>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Alamat Utama:</label>
+                                <input type="text" class="form-control" placeholder="Masukkan alamat...">
+                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Alamat Kedua:</label>
+                                <input type="text" class="form-control" placeholder="Masukkan alamat...">
+                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Provinsi:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>10-20</option>
+                                    <option>20-25</option>
+                                </select>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Kabupaten:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>10-20</option>
+                                    <option>20-25</option>
+                                </select>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Kecamatan:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>10-20</option>
+                                    <option>20-25</option>
+                                </select>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Kelurahan:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>10-20</option>
+                                    <option>20-25</option>
+                                </select>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Kode Pos:</label>
+                                <input type="text" class="form-control" placeholder="Masukkan alamat...">
+                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">No Tlp Utama :</label>
+                                <input type="text" class="form-control" placeholder="Masukkan alamat...">
+                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        
                     </div>
                 </form>
             </div>
