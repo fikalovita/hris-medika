@@ -53,20 +53,32 @@ class PegawaiJnsKaryawanController extends Controller
     public function update(Request $request)
     {
         $kd_jns_karyawan = $request->kd_jns_karyawan;
+        $jnsKaryawan = PegawaiJnsKaryawan::find($kd_jns_karyawan);
         $validate = $request->validate([
             'nm_jns_karyawan' => 'required'
         ]);
-
-        $jnsKaryawan = PegawaiJnsKaryawan::find($kd_jns_karyawan);
+        if (!$jnsKaryawan) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
         $jnsKaryawan->update([
             'nm_jns_karyawan' => $validate['nm_jns_karyawan']
         ]);
+
+
+        return response()->json(['message' => 'data berhasil diubah'], 200);
     }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $kd_jns_karyawan = $request->kd_jns_karyawan;
+        $jnsKaryawan = PegawaiJnsKaryawan::find($kd_jns_karyawan);
+        if (!$jnsKaryawan) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
+        $jnsKaryawan->delete();
+
+        return response()->json(['message' => 'data berhasil dihapus'], 200);
     }
 }
