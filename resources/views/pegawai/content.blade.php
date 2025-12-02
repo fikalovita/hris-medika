@@ -139,8 +139,8 @@
                             <div class="form-group">
                                 <label class="form-label">Tanggal Lahir</label>
                                 <div class="input-group date">
-                                    <input type="text" class="form-control"
-                                        id="pc-datepicker-3" placeholder="Pilih Tanggal">
+                                    <input type="text" class="form-control" id="pc-datepicker-3"
+                                        placeholder="Pilih Tanggal">
                                     <span class="input-group-text">
                                         <i class="feather icon-calendar"></i>
                                     </span>
@@ -240,7 +240,141 @@
                         </div>
                     </div>
                     <div class="row g-3">
-                        
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">No Tlp kedua :</label>
+                                <input type="text" class="form-control" placeholder="Masukkan alamat...">
+                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Email Utama:</label>
+                                <input type="email" class="form-control" placeholder="Masukkan alamat...">
+                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Email Kedua:</label>
+                                <input type="email" class="form-control" placeholder="Masukkan alamat...">
+                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">TMT:</label>
+                                <input type="email" class="form-control" placeholder="Masukkan alamat...">
+                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Status Menikah:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>Kawin</option>
+                                    <option>Belum Kawin</option>
+                                    <option>Cerai Mati</option>
+                                    <option>Cerai Hidup</option>
+                                </select>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Status PTKP Anak:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>Kawin</option>
+                                    <option>Belum Kawin</option>
+                                    <option>Cerai Mati</option>
+                                    <option>Cerai Hidup</option>
+                                </select>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Bidang:</label>
+                                <select id="inputState" class="form-control form-select">
+                                    <option selected>Kawin</option>
+                                    <option>Belum Kawin</option>
+                                    <option>Cerai Mati</option>
+                                    <option>Cerai Hidup</option>
+                                </select>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Tanggal Pengangkatan</label>
+                                <div class="input-group date">
+                                    <input type="text" class="form-control" id="tgl_pengangkatan"
+                                        placeholder="Pilih Tanggal">
+                                    <span class="input-group-text">
+                                        <i class="feather icon-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Posisi:</label>
+                                <div class="input-group">
+                                    <select id="inputState" class="form-control form-select">
+                                        <option selected>Kawin</option>
+                                        <option>Belum Kawin</option>
+                                        <option>Cerai Mati</option>
+                                        <option>Cerai Hidup</option>
+                                    </select>
+                                    <button class="input-group-text">
+                                        <i class="ti ti-plus"></i>
+                                    </button>
+                                </div>
+
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Golongan Pekerjaan:</label>
+                                <div class="input-group">
+                                    <select id="inputState" class="form-control form-select">
+                                        <option selected>Kawin</option>
+                                        <option>Belum Kawin</option>
+                                        <option>Cerai Mati</option>
+                                        <option>Cerai Hidup</option>
+                                    </select>
+                                    <button class="input-group-text">
+                                        <i class="ti ti-plus"></i>
+                                    </button>
+                                </div>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Golongan Pekerjaan:</label>
+                                <div class="input-group">
+                                    <select id="inputState" class="form-control form-select">
+                                        <option selected>Kawin</option>
+                                        <option>Belum Kawin</option>
+                                        <option>Cerai Mati</option>
+                                        <option>Cerai Hidup</option>
+                                    </select>
+                                    <button class="input-group-text">
+                                        <i class="ti ti-plus"></i>
+                                    </button>
+                                </div>
+
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
