@@ -371,7 +371,23 @@
                                         <i class="ti ti-plus"></i>
                                     </button>
                                 </div>
-
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Kelompok Golongan Pekerjaan:</label>
+                                <div class="input-group">
+                                    <select id="inputState" class="form-control form-select">
+                                        <option selected>Kawin</option>
+                                        <option>Belum Kawin</option>
+                                        <option>Cerai Mati</option>
+                                        <option>Cerai Hidup</option>
+                                    </select>
+                                    <button class="input-group-text">
+                                        <i class="ti ti-plus"></i>
+                                    </button>
+                                </div>
                                 <small class="form-text text-muted">Please enter Profile URL</small>
                             </div>
                         </div>
