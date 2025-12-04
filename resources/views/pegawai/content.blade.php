@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="col-md-6 col-6 col-sm-6 text-end">
                                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal"><i class="ti ti-plus"></i> Tambah
+                                        data-bs-target="#modal-pegawai"><i class="ti ti-plus"></i> Tambah
                                         Pegawai</button>
                                 </div>
                             </div>
@@ -63,8 +63,8 @@
     </div>
 </div>
 <!-- Button trigger modal -->
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Pegawai -->
+<div class="modal fade" id="modal-pegawai" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
@@ -299,13 +299,17 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Bidang:</label>
-                                <select id="inputState" class="form-control form-select">
-                                    <option selected>Kawin</option>
-                                    <option>Belum Kawin</option>
-                                    <option>Cerai Mati</option>
-                                    <option>Cerai Hidup</option>
-                                </select>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                                <div class="input-group">
+                                    <select id="inputState" class="form-control form-select">
+                                        <option selected>Kawin</option>
+                                        <option>Belum Kawin</option>
+                                        <option>Cerai Mati</option>
+                                        <option>Cerai Hidup</option>
+                                    </select>
+                                    <button class="input-group-text" id="btn-modal-bidang">
+                                        <i class="ti ti-plus"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -401,3 +405,59 @@
         </div>
     </div>
 </div>
+{{-- end modal pegawai --}}
+{{-- modal bidang --}}
+<div class="modal fade" id="modal-bidang-2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Bidang</h1>
+                <button type="button" class="btn btn-primary btn-sm" id="btn-modal-bidang2"><i class="ti ti-plus"></i> Tambah
+                    Bidang</button>
+            </div>
+            <div class="modal-body">
+                <table id="tabel-bidang" class="display table table-striped table-hover dt-responsive nowrap table-sm"
+                    style="width: 100%">
+                    <thead>
+                        <tr>
+                            <th>Kode Bidang</th>
+                            <th>Nama Bidang</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modal-bidang" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Bidang</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="kd_bidang" class="form-label">Kode Bidang</label>
+                        <input type="text" class="form-control" id="kode-bidang" name="kd_bidang">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nm_bidang" class="form-label">Nama Bidang</label>
+                        <input type="text" class="form-control" id="nama-bidang" name="nm_bidang">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- end modal bidang --}}

@@ -43,3 +43,47 @@ document.addEventListener('click', function(e){
     });
     }
 });
+
+//bidang trigger
+document.getElementById("btn-modal-bidang2").addEventListener("click", function (e) {
+  e.preventDefault();
+  const modalBidang = new bootstrap.Modal(document.getElementById('modal-bidang'));
+  modalBidang.show();
+});
+document.getElementById("btn-bidang").addEventListener("click", function (e) {
+  e.preventDefault();
+  const modalBidang2 = new bootstrap.Modal(document.getElementById('modal-bidang-2'));
+  modalBidang2.show();
+});
+document.getElementById("btn-modal-bidang").addEventListener("click", function (e) {
+  e.preventDefault();
+  const modalBidang = new bootstrap.Modal(document.getElementById('modal-bidang'));
+  modalBidang.show();
+});
+
+const tabelBidang = $('#tabel-bidang').DataTable({
+        responsive: {
+          details: {
+            display: $.fn.dataTable.Responsive.display.childRowImmediate,
+            type: ''
+          }
+        },
+        ajax:{
+          type:'get',
+          url:'http://127.0.0.1:8000/api/bidang',
+        },
+        processing: true,
+        serverSide: true,
+        columns: [
+            { data: 'kd_bidang' },
+            { data: 'nm_bidang' },
+            {data: null,
+              render: function(data, type, row){
+                return `
+                <button type="button" class="btn btn-warning btn-sm"><i class="ti ti-edit-circle"></i></button>
+                <button type="button" class="btn btn-success btn-sm"><i class="ti ti-file-search"></i></button>
+                `
+              }
+            }
+        ]
+      });

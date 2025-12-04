@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bidang;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class BidangController extends Controller
 {
@@ -13,7 +14,7 @@ class BidangController extends Controller
     public function index()
     {
         $dataBidang = Bidang::all();
-        return response()->json($dataBidang);
+        return DataTables::of($dataBidang)->make(true);
     }
     /**
      * Store a newly created resource in storage.
