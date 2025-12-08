@@ -26,6 +26,7 @@
 <script src="../assets/js/plugins/dataTables.responsive.min.js"></script>
 <script src="../assets/js/pcoded.js"></script>
 <script src="../assets/js/plugins/responsive.bootstrap5.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
 <script>layout_change('light');</script>
 <script>change_box_container('false');</script>
 <script>layout_rtl_change('false');</script>

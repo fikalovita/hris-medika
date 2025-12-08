@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pegawai;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Bidang extends Model
 {
@@ -15,4 +17,9 @@ class Bidang extends Model
     public $timestamps = false;
 
     protected $fillable = ['kd_bidang', 'nm_bidang'];
+
+    public function pegawai(): HasMany
+    {
+        return $this->hasMany(Pegawai::class, 'kd_bidang', 'kd_bidang');
+    }
 }

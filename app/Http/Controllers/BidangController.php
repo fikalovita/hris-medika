@@ -22,9 +22,13 @@ class BidangController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'kd_bidang' => 'required|unique:cuti_kategori,kd_kategori|max:255',
+                'kd_bidang' => 'required|unique:pegawai_bidang,kd_bidang|max:255',
             'nm_bidang' => 'required',
-        ]);
+            ],
+            [
+                'kd_bidang.unique' => "kode bidang sudah ada"
+            ]
+        );
         Bidang::create([
             'kd_bidang' => $validated['kd_bidang'],
             'nm_bidang' => $validated['nm_bidang'],
@@ -65,8 +69,14 @@ class BidangController extends Controller
      */
     public function destroy(Request $request)
     {
-        $kd_bidang = $request->kd_bidang;
+        $kd_bidang = $request->input('kd_bidang');
         $bidang = Bidang::find($kd_bidang);
+        if ($bidang->pegawai()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
+        }
+        if (!$bidang) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
         $bidang->delete();
         return response()->json(['message' => 'data berhasil dihapus']);
     }
