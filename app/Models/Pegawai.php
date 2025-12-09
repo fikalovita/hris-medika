@@ -69,4 +69,8 @@ class Pegawai extends Model
     {
         return $this->belongsTo(Bidang::class);
     }
+    public function posisi(): BelongsTo
+    {
+        return $this->belongsTo(Bidang::class);
+    }
 }

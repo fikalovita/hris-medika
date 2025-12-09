@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pegawai;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Posisi extends Model
 {
@@ -14,4 +16,9 @@ class Posisi extends Model
     public $keyType = 'string';
     protected $fillable = ['kd_posisi', 'nm_posisi'];
     public $timestamps = false;
+
+    public function pegawai(): HasMany
+    {
+        return $this->hasMany(Pegawai::class, 'kd_posisi', 'kd_posisi');
+    }
 }

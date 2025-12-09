@@ -18,8 +18,9 @@
         <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link"><span class="pc-micon"><i class="ti ti-menu"></i></span><span class="pc-mtext">Master Data</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="#!" id="btn-bidang">Bidang</a></li>
-            <li class="pc-item"><a class="pc-link" href="#!">Pegawai</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('bidang') }}" id="btn-bidang">Bidang</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('posisi') }}">Posisi</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('pegawai') }}">Pegawai</a></li>
           </ul>
         </li>
         <li class="pc-item">

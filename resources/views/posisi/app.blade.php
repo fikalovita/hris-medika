@@ -16,9 +16,9 @@
 
 @include('partials.navbar')
 
-@include('pegawai.content')
+@include('posisi.content')
 @vite('resources/js/datepicker.js')
 @include('partials.footer')
-@vite('resources/js/pegawai.js')
+@vite('resources/js/posisi.js')
 </body>
 </html>

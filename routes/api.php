@@ -41,8 +41,8 @@ Route::delete('/delete_posisi', [PosisiController::class, 'destroy']);
 //routes bidang
 Route::get('/bidang', [BidangController::class, 'index']);
 Route::post('/add_bidang', [BidangController::class, 'store']);
-Route::put('/detail_bidang', [BidangController::class, 'show']);
-Route::post('/update_bidang', [BidangController::class, 'update']);
+Route::get('/detail_bidang', [BidangController::class, 'show']);
+Route::put('/update_bidang', [BidangController::class, 'update']);
 Route::delete('/delete_bidang', [BidangController::class, 'destroy']);
 
 //routes perusahaan

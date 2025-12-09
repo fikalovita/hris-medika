@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Posisi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class PosisiController extends Controller
 {
@@ -15,7 +16,7 @@ class PosisiController extends Controller
     {
         $dataPosisi = Posisi::all();
 
-        return response()->json($dataPosisi);
+        return DataTables::of($dataPosisi)->make(true);
     }
 
     /**
@@ -70,6 +71,12 @@ class PosisiController extends Controller
     {
         $kd_posisi = $request->kd_posisi;
         $posisi = Posisi::find($kd_posisi);
+        if ($posisi->pegawai()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
+        }
+        if (!$posisi) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
         $posisi->delete();
 
         return response()->json(['message' => 'data berhasil dihapus']);
