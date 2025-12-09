@@ -35,7 +35,8 @@ Route::delete('/delete_kategori', [KategoriController::class, 'destroy']);
 //routes posisi
 Route::get('/posisi', [PosisiController::class, 'index']);
 Route::post('/add_posisi', [PosisiController::class, 'store']);
-Route::put('/detail_posisi', [PosisiController::class, 'show']);
+Route::get('/detail_posisi', [PosisiController::class, 'show']);
+Route::put('/update_posisi', [PosisiController::class, 'update']);
 Route::delete('/delete_posisi', [PosisiController::class, 'destroy']);
 
 //routes bidang

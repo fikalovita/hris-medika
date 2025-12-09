@@ -105,7 +105,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btn-update-bidang">Simpan</button>
+                <button type="button" class="btn btn-primary" id="btn-update-posisi">Simpan</button>
             </div>
         </div>
     </div>

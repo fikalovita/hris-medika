@@ -4,8 +4,8 @@ import 'sweetalert2/dist/sweetalert2.css';
 //bidang trigger
 document.getElementById("btn-modal-posisi").addEventListener("click", function (e) {
     e.preventDefault();
-    const modalBidang = new bootstrap.Modal(document.getElementById('modal-posisi'));
-    modalBidang.show();
+    const modalPosisi = new bootstrap.Modal(document.getElementById('modal-posisi'));
+    modalPosisi.show();
 });
 const tabelPosisi = $('#tabel-posisi').DataTable({
     responsive: {
@@ -31,7 +31,7 @@ const tabelPosisi = $('#tabel-posisi').DataTable({
             render: function (data, type, row) {
                 return `
                 <button type="button" class="btn btn-danger btn-sm btn-delete-posisi"  data-id=${data.kd_posisi}><i class="ti ti-trash"></i></button>
-                <button type="button" class="btn btn-warning btn-sm btn-edit-posisi" data-id=${data.nm_posisi}><i class="ti ti-edit-circle"></i></button>
+                <button type="button" class="btn btn-warning btn-sm btn-edit-posisi" data-id=${data.kd_posisi}><i class="ti ti-edit-circle"></i></button>
                 `
             },
         },
@@ -57,7 +57,7 @@ document.getElementById('submit-posisi').addEventListener('click', function (e) 
                 showConfirmButton: false,
                 timer: 1500
             });
-            tabelBidang.ajax.reload();
+            tabelPosisi.ajax.reload();
         })
         .catch(function (error) {
             Swal.fire({
@@ -108,14 +108,14 @@ document.addEventListener('click', function (e) {
 });
 
 document.addEventListener('click', function (e) {
-    const btn = e.target.closest('.btn-edit-bidang');
+    const btn = e.target.closest('.btn-edit-posisi');
     if (!btn) return;
-    const modalEditBidang = new bootstrap.Modal(document.getElementById('modal-edit-posisi'));
-    modalEditBidang.show();
-    const kd_bidang = btn.getAttribute('data-id');
-    axios.get('http://127.0.0.1:8000/api/detail_bidang', {
+    const modalEditPosisi = new bootstrap.Modal(document.getElementById('modal-edit-posisi'));
+    modalEditPosisi.show();
+    const kd_posisi = btn.getAttribute('data-id');
+    axios.get('http://127.0.0.1:8000/api/detail_posisi', {
         params: {
-            kd_bidang: kd_bidang
+            kd_posisi: kd_posisi
         }
     }).then(response => {
         const data = response.data;
@@ -128,10 +128,10 @@ document.addEventListener('click', function (e) {
         });
     })
 });
-document.getElementById('btn-update-bidang').addEventListener('click', function () {
-    axios.put('http://127.0.0.1:8000/api/update_bidang', {
-        kd_bidang: document.getElementById('edit-kode-posisi').value,
-        nm_bidang: document.getElementById('edit-nama-posisi').value
+document.getElementById('btn-update-posisi').addEventListener('click', function () {
+    axios.put('http://127.0.0.1:8000/api/update_posisi', {
+        kd_posisi: document.getElementById('edit-kode-posisi').value,
+        nm_posisi: document.getElementById('edit-nama-posisi').value
     }, {
         headers: {
             'Accept': 'application/json',
@@ -145,7 +145,7 @@ document.getElementById('btn-update-bidang').addEventListener('click', function 
             showConfirmButton: false,
             timer: 1500
         });
-        tabelBidang.ajax.reload();
+        tabelPosisi.ajax.reload();
     }).catch(error => {
         Swal.fire({
             icon: "error",
