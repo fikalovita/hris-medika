@@ -20,6 +20,8 @@
           <ul class="pc-submenu">
             <li class="pc-item"><a class="pc-link" href="{{ route('bidang') }}" id="btn-bidang">Bidang</a></li>
             <li class="pc-item"><a class="pc-link" href="{{ route('posisi') }}">Posisi</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('role') }}">Role</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('kelompok_umur') }}">Kelompok Umur</a></li>
             <li class="pc-item"><a class="pc-link" href="{{ route('pegawai') }}">Pegawai</a></li>
           </ul>
         </li>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KelompokUmur;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class KelompokUmurController extends Controller
 {
@@ -13,7 +14,7 @@ class KelompokUmurController extends Controller
     public function index()
     {
         $dataKelompokUmur = KelompokUmur::all();
-        return response()->json($dataKelompokUmur, 200);
+        return DataTables::of($dataKelompokUmur)->make(true);
     }
 
     /**
@@ -70,6 +71,12 @@ class KelompokUmurController extends Controller
     {
         $kd_kelompok_umur = $request->kd_kelompok_umur;
         $kelompokUmur = KelompokUmur::find($kd_kelompok_umur);
+        if ($kelompokUmur->pegawai()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
+        }
+        if (!$kelompokUmur) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
         $kelompokUmur->delete();
 
         return response()->json(['message' => 'data berhasil dihapus']);

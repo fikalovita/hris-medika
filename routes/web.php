@@ -14,3 +14,9 @@ Route::get('/bidang', function () {
 Route::get('/posisi', function () {
     return view('posisi.app');
 })->name('posisi');
+Route::get('/role', function () {
+    return view('role.app');
+})->name('role');
+Route::get('/kelompok_umur', function () {
+    return view('kelompok_umur.app');
+})->name('kelompok_umur');

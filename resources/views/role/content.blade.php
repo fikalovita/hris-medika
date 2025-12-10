@@ -28,24 +28,24 @@
                             <div class="row">
                                 <div class="col-md-6 col-6 col-sm-6">
 
-                                    <h5>Data Posisi</h5>
+                                    <h5>Data Role</h5>
                                 </div>
                                 <div class="col-md-6 col-6 col-sm-6 text-end">
-                                    <button type="button" class="btn btn-primary btn-sm" id="btn-modal-posisi"><i
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-modal-role"><i
                                             class="ti ti-plus"></i> Tambah
-                                        Posisi</button>
+                                        Role</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <table id="tabel-posisi"
+                        <table id="tabel-role"
                             class="display table table-striped table-hover dt-responsive nowrap table-sm"
                             style="width: 100%">
                             <thead>
                                 <tr>
-                                    <th>Kode Posisi</th>
-                                    <th>Nama Posisi</th>
+                                    <th>Kode Role</th>
+                                    <th>Nama Role</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -59,7 +59,7 @@
     </div>
 </div>
 {{-- modal tambah bidang --}}
-<div class="modal fade" id="modal-posisi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-role" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -69,21 +69,25 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="nm_bidang" class="form-label">Nama Posisi</label>
-                        <input type="text" class="form-control" id="nama-posisi" name="nm_posisi" placeholder="Nama Posisi">
+                        <label for="nm_bidang" class="form-label">Kode Role</label>
+                        <input type="text" class="form-control" id="kode-role" name="kd_lvl" placeholder="Nama Role">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nm_bidang" class="form-label">Nama Role</label>
+                        <input type="text" class="form-control" id="nama-role" name="nm_lvl" placeholder="Nama Role">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="submit-posisi">Simpan</button>
+                <button type="button" class="btn btn-primary" id="submit-role">Simpan</button>
             </div>
         </div>
     </div>
 </div>
 {{-- modal tambah bidang --}}
 {{-- modal edit bidang --}}
-    <div class="modal fade" id="modal-edit-posisi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-edit-role" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -94,17 +98,17 @@
                 <form>
                     <div class="mb-3">
                         <label for="kd_bidang" class="form-label">Kode Posisi</label>
-                        <input type="text" class="form-control edit-posisi" id="edit-kode-posisi" name="kd_posisi" data-key="kd_posisi" disabled>
+                        <input type="text" class="form-control edit-role" id="edit-kode-role" name="kd_lvl" data-key="kd_lvl" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="nm_bidang" class="form-label">Nama Posisi</label>
-                        <input type="text" class="form-control edit-posisi" id="edit-nama-posisi" name="nm_posisi" data-key="nm_posisi">
+                        <input type="text" class="form-control edit-role" id="edit-nama-role" name="nm_lvl" data-key="nm_lvl">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btn-update-posisi">Simpan</button>
+                <button type="button" class="btn btn-primary" id="btn-update-role">Simpan</button>
             </div>
         </div>
     </div>

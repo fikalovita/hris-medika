@@ -56,15 +56,15 @@ Route::delete('/delete_perusahaan', [PerusahaanController::class, 'destroy']);
 //routes kelompok umur
 Route::get('/kelompok_umur', [KelompokUmurController::class, 'index']);
 Route::post('/add_kelompok_umur', [KelompokUmurController::class, 'store']);
-Route::put('/detail_kelompok_umur', [KelompokUmurController::class, 'show']);
-Route::post('/update_kelompok_umur', [KelompokUmurController::class, 'update']);
+Route::get('/detail_kelompok_umur', [KelompokUmurController::class, 'show']);
+Route::put('/update_kelompok_umur', [KelompokUmurController::class, 'update']);
 Route::delete('/delete_kelompok_umur', [KelompokUmurController::class, 'destroy']);
 
 //routes pegawaiLvl
 Route::get('/pegawai_lvl', [PegawaiLvlController::class, 'index']);
 Route::post('/add_pegawai_lvl', [PegawaiLvlController::class, 'store']);
-Route::put('/detail_pegawai_lvl', [PegawaiLvlController::class, 'show']);
-Route::post('/update_pegawai_lvl', [PegawaiLvlController::class, 'update']);
+Route::get('/detail_pegawai_lvl', [PegawaiLvlController::class, 'show']);
+Route::put('/update_pegawai_lvl', [PegawaiLvlController::class, 'update']);
 Route::delete('/delete_pegawai_lvl', [PegawaiLvlController::class, 'destroy']);
 
 //routes Pegawai jns karyawan

@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pegawai;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class KelompokUmur extends Model
 {
@@ -14,4 +16,9 @@ class KelompokUmur extends Model
     public $incrementing = false;
     public $timestamps = false;
     public $keyType = 'String';
+
+    public function pegawai(): HasMany
+    {
+        return $this->hasMany(Pegawai::class, 'kd_kelompok_umur', 'kd_kelompok_umur');
+    }
 }

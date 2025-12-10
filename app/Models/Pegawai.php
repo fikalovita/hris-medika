@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use App\Models\Bidang;
+use App\Models\Posisi;
 use App\Models\Provinsi;
+use App\Models\PegawaiLvl;
+use App\Models\KelompokUmur;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -71,6 +74,14 @@ class Pegawai extends Model
     }
     public function posisi(): BelongsTo
     {
-        return $this->belongsTo(Bidang::class);
+        return $this->belongsTo(Posisi::class);
+    }
+    public function role(): BelongsTo
+    {
+        return $this->belongsTo(PegawaiLvl::class);
+    }
+    public function kelompok_umur(): BelongsTo
+    {
+        return $this->belongsTo(KelompokUmur::class);
     }
 }

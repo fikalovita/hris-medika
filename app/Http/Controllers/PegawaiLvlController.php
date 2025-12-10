@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PegawaiLvl;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class PegawaiLvlController extends Controller
 {
@@ -13,7 +14,7 @@ class PegawaiLvlController extends Controller
     public function index()
     {
         $dataLvl = PegawaiLvl::all();
-        return response()->json($dataLvl, 200);
+        return DataTables::of($dataLvl)->make(true);
     }
 
     /**
@@ -66,8 +67,13 @@ class PegawaiLvlController extends Controller
     {
         $kd_lvl = $request->kd_lvl;
         $pegawai_lvl = PegawaiLvl::find($kd_lvl);
+        if (!$pegawai_lvl) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
+        if ($pegawai_lvl->pegawai()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
+        }
         $pegawai_lvl->delete();
-
         return response()->json(['message' => 'Data Berhasil dihapus'], 200);
     }
 }

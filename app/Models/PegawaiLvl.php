@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pegawai;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PegawaiLvl extends Model
 {
@@ -14,4 +16,9 @@ class PegawaiLvl extends Model
     public $keyType = 'String';
     public $timestamps = false;
     protected $fillable = ['kd_lvl', 'nm_lvl'];
+
+    public function pegawai(): HasMany
+    {
+        return $this->hasMany(Pegawai::class, 'kd_lvl_manager', 'kd_lvl');
+    }
 }
