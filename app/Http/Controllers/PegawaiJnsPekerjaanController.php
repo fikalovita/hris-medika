@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
-use App\Models\PegawaiJnsPekerjaan;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+use App\Models\PegawaiJnsPekerjaan;
 
 class PegawaiJnsPekerjaanController extends Controller
 {
@@ -14,7 +15,7 @@ class PegawaiJnsPekerjaanController extends Controller
     public function index()
     {
         $dataJnsPekerjaan = PegawaiJnsPekerjaan::all();
-        return response()->json($dataJnsPekerjaan);
+        return DataTables::of($dataJnsPekerjaan)->make(true);
     }
     /**
      * Store a newly created resource in storage.
@@ -51,13 +52,14 @@ class PegawaiJnsPekerjaanController extends Controller
      */
     public function update(Request $request)
     {
-        $kd_jns_pekerjaan = $request->kd_jns_pekerjaan;
-        $pegawaiJnsPekerjaan = PegawaiJnsPekerjaan::find($kd_jns_pekerjaan);
         $validate = $request->validate([
             'nm_jns_pekerjaan' => 'required',
         ]);
 
-        if (!$PegawaiJnsPekerjaan) {
+        $kd_jns_pekerjaan = $request->kd_jns_pekerjaan;
+        $pegawaiJnsPekerjaan = PegawaiJnsPekerjaan::find($kd_jns_pekerjaan);
+
+        if (!$pegawaiJnsPekerjaan) {
             return response()->json(['message' => 'data tidak ditemukan'], 404);
         }
 
@@ -72,9 +74,12 @@ class PegawaiJnsPekerjaanController extends Controller
     public function destroy(Request $request)
     {
         $kd_jns_pekerjaan = $request->kd_jns_pekerjaan;
-        $PegawaiJnsPekerjaan = PegawaiJnsPekerjaan::find($kd_jns_pekerjaan);
-        if (!$PegawaiJnsPekerjaan) {
-            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+        $pegawaiJnsPekerjaan = PegawaiJnsPekerjaan::find($kd_jns_pekerjaan);
+        if (!$pegawaiJnsPekerjaan) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
+        if ($pegawaiJnsPekerjaan->pegawai()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
         }
         $pegawaiJnsPekerjaan->delete();
         return response()->json(['message' => 'Data berhasil dihapus'], 200);

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PegawaiJnsKaryawan;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+use App\Models\PegawaiJnsKaryawan;
 
 class PegawaiJnsKaryawanController extends Controller
 {
@@ -13,7 +14,7 @@ class PegawaiJnsKaryawanController extends Controller
     public function index()
     {
         $dataJnsKaryawan =  PegawaiJnsKaryawan::all();
-        return response()->json($dataJnsKaryawan, 200);
+        return DataTables::of($dataJnsKaryawan)->make(true);
     }
 
     /**
@@ -76,6 +77,9 @@ class PegawaiJnsKaryawanController extends Controller
         $jnsKaryawan = PegawaiJnsKaryawan::find($kd_jns_karyawan);
         if (!$jnsKaryawan) {
             return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
+        if ($jnsKaryawan->pegawai()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
         }
         $jnsKaryawan->delete();
 

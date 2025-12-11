@@ -7,6 +7,9 @@ use App\Models\Posisi;
 use App\Models\Provinsi;
 use App\Models\PegawaiLvl;
 use App\Models\KelompokUmur;
+use App\Models\PegawaiJnsKaryawan;
+use App\Models\PegawaiGolPekerjaan;
+use App\Models\PegawaiJnsPekerjaan;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -83,5 +86,17 @@ class Pegawai extends Model
     public function kelompok_umur(): BelongsTo
     {
         return $this->belongsTo(KelompokUmur::class);
+    }
+    public function jenis_pekerjaan(): BelongsTo
+    {
+        return $this->belongsTo(PegawaiJnsPekerjaan::class);
+    }
+    public function jenis_karyawan(): BelongsTo
+    {
+        return $this->belongsTo(PegawaiJnsKaryawan::class);
+    }
+    public function golongan_pekerjaan(): BelongsTo
+    {
+        return $this->belongsTo(PegawaiGolPekerjaan::class);
     }
 }

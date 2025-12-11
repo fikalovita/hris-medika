@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use App\Models\PegawaiGolPekerjaan;
 
 class PegawaiGolPekerjaanController extends Controller
@@ -13,7 +14,7 @@ class PegawaiGolPekerjaanController extends Controller
     public function index()
     {
         $dataGolPekerjaan = PegawaiGolPekerjaan::all();
-        return response()->json($dataGolPekerjaan);
+        return DataTables::of($dataGolPekerjaan)->make(true);
     }
 
     /**
@@ -77,7 +78,10 @@ class PegawaiGolPekerjaanController extends Controller
         $kd_gol_pekerjaan = $request->kd_gol_pekerjaan;
         $GolPekerjaan = PegawaiGolPekerjaan::find($kd_gol_pekerjaan);
         if (!$GolPekerjaan) {
-            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
+        if ($GolPekerjaan->pegawai()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
         }
         $GolPekerjaan->delete();
         return response()->json(['message' => 'Data berhasil dihapus'], 200);

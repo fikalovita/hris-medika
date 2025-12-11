@@ -22,6 +22,10 @@
             <li class="pc-item"><a class="pc-link" href="{{ route('posisi') }}">Posisi</a></li>
             <li class="pc-item"><a class="pc-link" href="{{ route('role') }}">Role</a></li>
             <li class="pc-item"><a class="pc-link" href="{{ route('kelompok_umur') }}">Kelompok Umur</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('jenis_pekerjaan') }}">Jenis Pekerjaan</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('jenis_karyawan') }}">Jenis Karyawan</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('golongan_pekerjaan') }}">Golongan Pekerjaan</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('kelompok_gol_pekerjaan') }}">Kelompok Golongan Pekerjaan</a></li>
             <li class="pc-item"><a class="pc-link" href="{{ route('pegawai') }}">Pegawai</a></li>
           </ul>
         </li>
