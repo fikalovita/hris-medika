@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
+import axios from 'axios';
 window.Swal = Swal;
 const tabelPegawai = $('#new-cons').DataTable({
     responsive: {
