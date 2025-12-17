@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 @include('partials.header')
 
 <body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
@@ -14,9 +16,9 @@
 
 @include('partials.navbar')
 
-@include('kelompok_gol_pekerjaan.content')
+@include('ptkp_stts_anak.content')
 @vite('resources/js/datepicker.js')
 @include('partials.footer')
-@vite('resources/js/kel_gol_pekerjaan.js')
+@vite('resources/js/ptkp_stts_anak.js')
 </body>
 </html>

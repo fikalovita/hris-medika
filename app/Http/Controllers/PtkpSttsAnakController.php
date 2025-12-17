@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PtkpSttsAnak;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class PtkpSttsAnakController extends Controller
 {
@@ -13,7 +14,7 @@ class PtkpSttsAnakController extends Controller
     public function index()
     {
         $dataPtkpAnak = PtkpSttsAnak::all();
-        return response()->json($dataPtkpAnak);
+        return DataTables::of($dataPtkpAnak)->make(true);
     }
 
     /**
@@ -77,7 +78,10 @@ class PtkpSttsAnakController extends Controller
         $kd_ptkp = $request->kd_ptkp;
         $PtkpAnak = PtkpSttsAnak::find($kd_ptkp);
         if (!$PtkpAnak) {
-            return response()->json(['message' => 'Data tidak ditemukan'], 404);
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
+        if ($PtkpAnak->pegawai()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
         }
         $PtkpAnak->delete();
         return response()->json(['message' => 'Data berhasil dihapus'], 200);

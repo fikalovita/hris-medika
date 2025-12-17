@@ -29,24 +29,24 @@
                             <div class="row">
                                 <div class="col-md-6 col-6 col-sm-6">
 
-                                    <h5>Data Jenis Karyawan</h5>
+                                    <h5>Data PTKP Status Anak</h5>
                                 </div>
                                 <div class="col-md-6 col-6 col-sm-6 text-end">
-                                    <button type="button" class="btn btn-primary btn-sm" id="btn-modal-jk"><i
+                                    <button type="button" class="btn btn-primary btn-sm" id="btn-modal-ptkp"><i
                                             class="ti ti-plus"></i> Tambah
-                                        Jenis Karyawan</button>
+                                       PTKP Status Anak</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
-                        <table id="tabel-jk"
+                        <table id="tabel-ptkp"
                             class="display table table-striped table-hover dt-responsive nowrap table-sm"
                             style="width: 100%">
                             <thead>
                                 <tr>
-                                    <th>Kode Jenis Karyawan</th>
-                                    <th>Nama Jenis Karyawan</th>
+                                    <th>Kode PTKP Status Anak</th>
+                                    <th>Nama PTKP Status Anak</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -60,56 +60,56 @@
     </div>
 </div>
 {{-- modal tambah bidang --}}
-<div class="modal fade" id="modal-jk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-ptkp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Jenis Karyawan</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah PTKP  Status Anak</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="kd_bidang" class="form-label">Kode Jenis Karyawan</label>
-                        <input type="text" class="form-control" id="kode-jk" name="kd_jns_Karyawan">
+                        <label for="kd_bidang" class="form-label">Kode PTKP  Status Anak</label>
+                        <input type="text" class="form-control" id="kode-ptkp" name="kd_kd_ptkp">
                     </div>
                     <div class="mb-3">
-                        <label for="nm_bidang" class="form-label">Nama Jenis Karyawan</label>
-                        <input type="text" class="form-control" id="nama-jk" name="nm_jns_Karyawan">
+                        <label for="nm_bidang" class="form-label">Nama PTKP  Status Anak</label>
+                        <input type="text" class="form-control" id="nama-ptkp" name="nm_kd_ptkp">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="submit-jk">Simpan</button>
+                <button type="button" class="btn btn-primary" id="submit-ptkp">Simpan</button>
             </div>
         </div>
     </div>
 </div>
 {{-- modal tambah bidang --}}
 {{-- modal edit bidang --}}
-    <div class="modal fade" id="modal-edit-jk" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modal-edit-ptkp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Tambah Jenis Karyawan</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Form Edit PTKP Status Anak</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="kd_bidang" class="form-label">Kode Jenis Karyawan</label>
-                        <input type="text" class="form-control edit-jk" id="edit-kode-jk" name="kd_jns_karyawan" data-key="kd_jns_karyawan" disabled>
+                        <label for="kd_bidang" class="form-label">Kode PTKP  Status Anak</label>
+                        <input type="text" class="form-control edit-ptkp" id="edit-kode-ptkp" name="kd_ptkp" data-key="kd_ptkp" disabled>
                     </div>
                     <div class="mb-3">
-                        <label for="nm_bidang" class="form-label">Nama Jenis Karyawan</label>
-                        <input type="text" class="form-control edit-jk" id="edit-nama-jk" name="nm_jns_karyawan" data-key="nm_jns_karyawan">
+                        <label for="nm_bidang" class="form-label">Nama PTKP  Status Anak</label>
+                        <input type="text" class="form-control edit-ptkp" id="edit-nama-ptkp" name="nm_ptkp" data-key="nm_ptkp">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="btn-update-jk">Simpan</button>
+                <button type="button" class="btn btn-primary" id="btn-update-ptkp">Simpan</button>
             </div>
         </div>
     </div>

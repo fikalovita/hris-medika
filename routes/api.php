@@ -84,8 +84,8 @@ Route::delete('/delete_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'd
 //routes PTKP Status Anak
 Route::get('/ptkp_stts_anak', [PtkpSttsAnakController::class, 'index']);
 Route::post('/add_ptkp_stts_anak', [PtkpSttsAnakController::class, 'store']);
-Route::put('/detail_ptkp_stts_anak', [PtkpSttsAnakController::class, 'show']);
-Route::post('/update_ptkp_stts_anak', [PtkpSttsAnakController::class, 'show']);
+Route::get('/detail_ptkp_stts_anak', [PtkpSttsAnakController::class, 'show']);
+Route::put('/update_ptkp_stts_anak', [PtkpSttsAnakController::class, 'update']);
 Route::delete('/delete_ptkp_stts_anak', [PtkpSttsAnakController::class, 'destroy']);
 
 //routes pegawai Gol Pekerjaan
@@ -98,6 +98,6 @@ Route::delete('/delete_pegawai_gol_pekerjaan', [PegawaiGolPekerjaanController::c
 //routes pegawai kelompok Gol Pekerjaan
 Route::get('/pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'index']);
 Route::post('/add_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'store']);
-Route::put('/detail_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'show']);
-Route::post('/update_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'show']);
+Route::get('/detail_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'show']);
+Route::put('/update_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'update']);
 Route::delete('/delete_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'destroy']);

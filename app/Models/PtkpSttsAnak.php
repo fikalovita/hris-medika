@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pegawai;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class PtkpSttsAnak extends Model
 {
@@ -16,4 +18,9 @@ class PtkpSttsAnak extends Model
     public $timestamps = false;
 
     protected $fillable = ['kd_ptkp', 'nm_ptkp'];
+
+    public function pegawai(): HasMany
+    {
+        return $this->hasMany(Pegawai::class, 'kd_ptkp_status_anak', 'kd_ptkp');
+    }
 }

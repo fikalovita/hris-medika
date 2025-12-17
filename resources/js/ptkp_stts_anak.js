@@ -3,12 +3,12 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 
 //bidang trigger
-document.getElementById("btn-modal-kgp").addEventListener("click", function (e) {
+document.getElementById("btn-modal-ptkp").addEventListener("click", function (e) {
     e.preventDefault();
-    const modalkgp = new bootstrap.Modal(document.getElementById('modal-kgp'));
-    modalkgp.show();
+    const modalptkp = new bootstrap.Modal(document.getElementById('modal-ptkp'));
+    modalptkp.show();
 });
-const tabelkgp= $('#tabel-kgp').DataTable({
+const tabelptkp= $('#tabel-ptkp').DataTable({
     responsive: {
         // details: {
         //     display: $.fn.dataTable.Responsive.display.childRowImmediate,
@@ -17,33 +17,33 @@ const tabelkgp= $('#tabel-kgp').DataTable({
     },
     ajax: {
         type: 'get',
-        url: 'http://127.0.0.1:8000/api/pegawai_kel_gol_pekerjaan',
+        url: 'http://127.0.0.1:8000/api/ptkp_stts_anak',
     },
     processing: true,
     serverSide: true,
     columns: [{
-            data: 'kd_kelompok_gol_pekerjaan'
+            data: 'kd_ptkp'
         },
         {
-            data: 'nm_kelompok_gol_pekerjaan'
+            data: 'nm_ptkp'
         },
         {
             data: null,
             render: function (data) {
                 return `
-                <button type="button" class="btn btn-danger btn-sm btn-delete-kgp"  data-id=${data.kd_kelompok_gol_pekerjaan}><i class="ti ti-trash"></i></button>
-                <button type="button" class="btn btn-warning btn-sm btn-edit-kgp" data-id=${data.kd_kelompok_gol_pekerjaan}><i class="ti ti-edit-circle"></i></button>
+                <button type="button" class="btn btn-danger btn-sm btn-delete-ptkp"  data-id=${data.kd_ptkp}><i class="ti ti-trash"></i></button>
+                <button type="button" class="btn btn-warning btn-sm btn-edit-ptkp" data-id=${data.kd_ptkp}><i class="ti ti-edit-circle"></i></button>
                 `
             },
         },
     ],
 });
-document.getElementById('submit-kgp').addEventListener('click', function (e) {
+document.getElementById('submit-ptkp').addEventListener('click', function (e) {
     e.preventDefault();
     axios.post(
-            'http://127.0.0.1:8000/api/add_pegawai_kel_gol_pekerjaan', {
-                kd_kelompok_gol_pekerjaan: document.getElementById('kode-kgp').value,
-                nm_kelompok_gol_pekerjaan: document.getElementById('nama-kgp').value
+            'http://127.0.0.1:8000/api/add_ptkp_stts_anak', {
+                kd_ptkp: document.getElementById('kode-ptkp').value,
+                nm_ptkp: document.getElementById('nama-ptkp').value
             }, {
                 headers: {
                     'Accept': 'application/json',
@@ -59,7 +59,7 @@ document.getElementById('submit-kgp').addEventListener('click', function (e) {
                 showConfirmButton: false,
                 timer: 1500
             });
-            tabelkgp.ajax.reload();
+            tabelptkp.ajax.reload();
         })
         .catch(function (error) {
             Swal.fire({
@@ -70,7 +70,7 @@ document.getElementById('submit-kgp').addEventListener('click', function (e) {
         });
 });
 document.addEventListener('click', function (e) {
-    const btn = e.target.closest('.btn-delete-kgp');
+    const btn = e.target.closest('.btn-delete-ptkp');
     if (!btn) return;
     Swal.fire({
         title: "Are you sure?",
@@ -82,10 +82,10 @@ document.addEventListener('click', function (e) {
         confirmButtonText: "Yes, delete it!"
     }).then((result) => {
         if (result.isConfirmed) {
-            const kd_kelompok_gol_pekerjaan = btn.getAttribute('data-id');
-            axios.delete('http://127.0.0.1:8000/api/delete_pegawai_kel_gol_pekerjaan', {
+            const kd_ptkp = btn.getAttribute('data-id');
+            axios.delete('http://127.0.0.1:8000/api/delete_ptkp_stts_anak', {
                     params: {
-                        kd_kelompok_gol_pekerjaan: kd_kelompok_gol_pekerjaan
+                        kd_ptkp: kd_ptkp
                     }
                 })
                 .then(response => {
@@ -94,7 +94,7 @@ document.addEventListener('click', function (e) {
                         text: response.message,
                         icon: "success"
                     });
-                    tabelkgp.ajax.reload(null, false);
+                    tabelptkp.ajax.reload(null, false);
                 })
                 .catch(error => {
                     if (error.response.status === 409) {
@@ -110,18 +110,18 @@ document.addEventListener('click', function (e) {
 });
 
 document.addEventListener('click', function (e) {
-    const btn = e.target.closest('.btn-edit-kgp');
+    const btn = e.target.closest('.btn-edit-ptkp');
     if (!btn) return;
-    const modalEditkgp = new bootstrap.Modal(document.getElementById('modal-edit-kgp'));
-    modalEditkgp.show();
-    const kd_kelompok_gol_pekerjaan = btn.getAttribute('data-id');
-    axios.get('http://127.0.0.1:8000/api/detail_pegawai_kel_gol_pekerjaan', {
+    const modalEditptkp = new bootstrap.Modal(document.getElementById('modal-edit-ptkp'));
+    modalEditptkp.show();
+    const kd_ptkp = btn.getAttribute('data-id');
+    axios.get('http://127.0.0.1:8000/api/detail_ptkp_stts_anak', {
         params: {
-            kd_kelompok_gol_pekerjaan: kd_kelompok_gol_pekerjaan
+            kd_ptkp: kd_ptkp
         }
     }).then(response => {
         const data = response.data;
-        document.querySelectorAll('.edit-kgp').forEach(field => {
+        document.querySelectorAll('.edit-ptkp').forEach(field => {
             const key = field.dataset.key;
 
             if (data[key] !== undefined) {
@@ -130,10 +130,10 @@ document.addEventListener('click', function (e) {
         });
     })
 });
-document.getElementById('btn-update-kgp').addEventListener('click', function () {
-    axios.put('http://127.0.0.1:8000/api/update_pegawai_kel_gol_pekerjaan', {
-        kd_kelompok_gol_pekerjaan: document.getElementById('edit-kode-kgp').value,
-        nm_kelompok_gol_pekerjaan: document.getElementById('edit-nama-kgp').value
+document.getElementById('btn-update-ptkp').addEventListener('click', function () {
+    axios.put('http://127.0.0.1:8000/api/update_ptkp_stts_anak', {
+        kd_ptkp: document.getElementById('edit-kode-ptkp').value,
+        nm_ptkp: document.getElementById('edit-nama-ptkp').value
     }, {
         headers: {
             'Accept': 'application/json',
@@ -147,7 +147,7 @@ document.getElementById('btn-update-kgp').addEventListener('click', function () 
             showConfirmButton: false,
             timer: 1500
         });
-        tabelkgp.ajax.reload();
+        tabelptkp.ajax.reload();
     }).catch(error => {
         Swal.fire({
             icon: "error",

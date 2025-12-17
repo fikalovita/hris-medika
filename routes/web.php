@@ -32,3 +32,6 @@ Route::get('/golongan_pekerjaan', function () {
 Route::get('/kelompok_gol_pekerjaan', function () {
     return view('kelompok_gol_pekerjaan.app');
 })->name('kelompok_gol_pekerjaan');
+Route::get('/ptkp_stts_anak', function () {
+    return view('ptkp_stts_anak.app');
+})->name('ptkp_stts_anak');
