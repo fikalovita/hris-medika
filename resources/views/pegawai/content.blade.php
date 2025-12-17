@@ -159,10 +159,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Kelompok Umur:</label>
-                                <select id="inputState" class="form-control form-select">
-                                    <option selected>10-20</option>
-                                    <option>20-25</option>
-                                </select>
+                                <select id="kelompok_umur" class="form-control form-select"></select>
                                 <small class="form-text text-muted">Please enter Profile URL</small>
                             </div>
                         </div>
@@ -285,12 +282,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Status PTKP Anak:</label>
-                                <select id="inputState" class="form-control form-select">
-                                    <option selected>Kawin</option>
-                                    <option>Belum Kawin</option>
-                                    <option>Cerai Mati</option>
-                                    <option>Cerai Hidup</option>
-                                </select>
+                                <select id="ptkp-stts-anak" class="form-control form-select"></select>
                                 <small class="form-text text-muted">Please enter Profile URL</small>
                             </div>
                         </div>
@@ -300,15 +292,7 @@
                             <div class="form-group">
                                 <label class="form-label">Bidang:</label>
                                 <div class="input-group">
-                                    <select id="inputState" class="form-control form-select">
-                                        <option selected>Kawin</option>
-                                        <option>Belum Kawin</option>
-                                        <option>Cerai Mati</option>
-                                        <option>Cerai Hidup</option>
-                                    </select>
-                                    <button class="input-group-text" id="btn-modal-bidang">
-                                        <i class="ti ti-plus"></i>
-                                    </button>
+                                    <select id="bidang" class="form-control form-select"></select>
                                 </div>
                             </div>
                         </div>
@@ -328,15 +312,7 @@
                             <div class="form-group">
                                 <label class="form-label">Posisi:</label>
                                 <div class="input-group">
-                                    <select id="inputState" class="form-control form-select">
-                                        <option selected>Kawin</option>
-                                        <option>Belum Kawin</option>
-                                        <option>Cerai Mati</option>
-                                        <option>Cerai Hidup</option>
-                                    </select>
-                                    <button class="input-group-text">
-                                        <i class="ti ti-plus"></i>
-                                    </button>
+                                    <select id="posisi" class="form-control form-select"></select>
                                 </div>
 
                                 <small class="form-text text-muted">Please enter Profile URL</small>
@@ -348,32 +324,25 @@
                             <div class="form-group">
                                 <label class="form-label">Golongan Pekerjaan:</label>
                                 <div class="input-group">
-                                    <select id="inputState" class="form-control form-select">
-                                        <option selected>Kawin</option>
-                                        <option>Belum Kawin</option>
-                                        <option>Cerai Mati</option>
-                                        <option>Cerai Hidup</option>
-                                    </select>
-                                    <button class="input-group-text">
-                                        <i class="ti ti-plus"></i>
-                                    </button>
+                                    <select id="gol-pekerjaan" class="form-control form-select"></select>
                                 </div>
                                 <small class="form-text text-muted">Please enter Profile URL</small>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-label">Golongan Pekerjaan:</label>
+                                <label class="form-label">Jenis Pekerjaan:</label>
                                 <div class="input-group">
-                                    <select id="inputState" class="form-control form-select">
-                                        <option selected>Kawin</option>
-                                        <option>Belum Kawin</option>
-                                        <option>Cerai Mati</option>
-                                        <option>Cerai Hidup</option>
-                                    </select>
-                                    <button class="input-group-text">
-                                        <i class="ti ti-plus"></i>
-                                    </button>
+                                    <select id="jenis-pekerjaan" class="form-control form-select"></select>
+                                </div>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Jenis Karyawan:</label>
+                                <div class="input-group">
+                                    <select id="jenis-karyawan" class="form-control form-select"></select>
                                 </div>
                                 <small class="form-text text-muted">Please enter Profile URL</small>
                             </div>
@@ -382,15 +351,16 @@
                             <div class="form-group">
                                 <label class="form-label">Kelompok Golongan Pekerjaan:</label>
                                 <div class="input-group">
-                                    <select id="inputState" class="form-control form-select">
-                                        <option selected>Kawin</option>
-                                        <option>Belum Kawin</option>
-                                        <option>Cerai Mati</option>
-                                        <option>Cerai Hidup</option>
-                                    </select>
-                                    <button class="input-group-text">
-                                        <i class="ti ti-plus"></i>
-                                    </button>
+                                    <select id="kel-gol-pekerjaan" class="form-control form-select"></select>
+                                </div>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Role:</label>
+                                <div class="input-group">
+                                    <select id="role" class="form-control form-select"></select>
                                 </div>
                                 <small class="form-text text-muted">Please enter Profile URL</small>
                             </div>
