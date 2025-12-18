@@ -77,24 +77,22 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">NRP</label>
-                                <input type="email" class="form-control" placeholder="Enter full name">
-                                <small class="form-text text-muted">Please enter your full name</small>
+                                <input type="email" class="form-control" placeholder="Masukkan NRP...">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Nama Depan</label>
-                                <input type="text" class="form-control" placeholder="Enter email">
-                                <small class="form-text text-muted">Please enter your email</small>
+                                <input type="text" class="form-control" placeholder="Masukkan Nama Depan...">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Nama Belakang:</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Enter Password">
+                                    <input type="text" class="form-control" placeholder="Masukkan Nama Belakang...">
                                 </div>
-                                <small class="form-text text-muted">Please enter your Password</small>
+                            
                             </div>
                         </div>
                     </div>
@@ -106,7 +104,7 @@
                                     <option selected>Ya</option>
                                     <option>Tidak</option>
                                 </select>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                               
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -116,14 +114,14 @@
                                     <option selected>Laki-Laki</option>
                                     <option>Perempuan</option>
                                 </select>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                           
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Negara Kelahiran</label>
-                                <input type="text" class="form-control" placeholder="Enter your address">
-                                <small class="form-text text-muted">Please enter your address</small>
+                                <input type="text" class="form-control" placeholder="Masukkan Negara Kelahiran...">
+                                
                             </div>
                         </div>
                     </div>
@@ -131,8 +129,8 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Kota Kelahiran</label>
-                                <input type="text" class="form-control" placeholder="Enter your address">
-                                <small class="form-text text-muted">Please enter your address</small>
+                                <input type="text" class="form-control" placeholder="Masukkan Kota Kelahiran...">
+                              
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -151,7 +149,7 @@
                             <div class="form-group">
                                 <label class="form-label">Usia</label>
                                 <input type="number" class="form-control">
-                                <small class="form-text text-muted">Please enter your address</small>
+                          
                             </div>
                         </div>
                     </div>
@@ -167,14 +165,14 @@
                             <div class="form-group">
                                 <label class="form-label">Alamat Utama:</label>
                                 <input type="text" class="form-control" placeholder="Masukkan alamat...">
-                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                           
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Alamat Kedua:</label>
                                 <input type="text" class="form-control" placeholder="Masukkan alamat...">
-                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                             
                             </div>
                         </div>
                     </div>
@@ -224,15 +222,15 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Kode Pos:</label>
-                                <input type="text" class="form-control" placeholder="Masukkan alamat...">
-                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                                <input type="text" class="form-control" placeholder="Kode Pos...">
+                             
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">No Tlp Utama :</label>
-                                <input type="text" class="form-control" placeholder="Masukkan alamat...">
-                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                                <input type="text" class="form-control" placeholder="No Tlp Utama...">
+                            
                             </div>
                         </div>
                     </div>
@@ -240,22 +238,22 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">No Tlp kedua :</label>
-                                <input type="text" class="form-control" placeholder="Masukkan alamat...">
-                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                                <input type="text" class="form-control" placeholder="No Tlp kedua...">
+                               
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Email Utama:</label>
-                                <input type="email" class="form-control" placeholder="Masukkan alamat...">
-                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                                <input type="email" class="form-control" placeholder=Email Utama...">
+                           
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Email Kedua:</label>
-                                <input type="email" class="form-control" placeholder="Masukkan alamat...">
-                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                                <input type="email" class="form-control" placeholder="Masukkan Email Kedua...">
+                            
                             </div>
                         </div>
                     </div>
@@ -263,8 +261,8 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">TMT:</label>
-                                <input type="email" class="form-control" placeholder="Masukkan alamat...">
-                                <small class="form-text text-muted">Silahkan masukkan alamat anda</small>
+                                <input type="email" class="form-control" placeholder="Masukkan TMT...">
+                             
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -276,14 +274,14 @@
                                     <option>Cerai Mati</option>
                                     <option>Cerai Hidup</option>
                                 </select>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                             
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Status PTKP Anak:</label>
                                 <select id="ptkp-stts-anak" class="form-control form-select"></select>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                                
                             </div>
                         </div>
                     </div>
@@ -315,7 +313,7 @@
                                     <select id="posisi" class="form-control form-select"></select>
                                 </div>
 
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                                
                             </div>
                         </div>
                     </div>
@@ -326,7 +324,7 @@
                                 <div class="input-group">
                                     <select id="gol-pekerjaan" class="form-control form-select"></select>
                                 </div>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                                
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -335,7 +333,7 @@
                                 <div class="input-group">
                                     <select id="jenis-pekerjaan" class="form-control form-select"></select>
                                 </div>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                               
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -344,7 +342,7 @@
                                 <div class="input-group">
                                     <select id="jenis-karyawan" class="form-control form-select"></select>
                                 </div>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                                
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -353,17 +351,17 @@
                                 <div class="input-group">
                                     <select id="kel-gol-pekerjaan" class="form-control form-select"></select>
                                 </div>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                               
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
-                                <label class="form-label">Role:</label>
+                                <label class="form-label">Level Manager:</label>
                                 <div class="input-group">
                                     <select id="role" class="form-control form-select"
                                         data-live-search="true"></select>
                                 </div>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                               
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -372,7 +370,41 @@
                                 <select id="manager" class="form-control form-select" data-live-search="true">
                                     <option value="">-- Pilih Manager --</option>
                                 </select>
-                                <small class="form-text text-muted">Please enter Profile URL</small>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">No.KTP:</label>
+                                <input type="email" class="form-control" placeholder="Masukkan No.KTP...">
+                              
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Passport:</label>
+                                <input type="email" class="form-control" placeholder="Masukkan Passport...">
+                              
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">BPJS Ket:</label>
+                                <input type="email" class="form-control" placeholder="Masukkan BPJS Ket...">
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Nama Ibu</label>
+                                <input type="email" class="form-control" placeholder="Masukkan Nama Ibu...">
+                            
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Kontak Darurat</label>
+                               <input type="email" class="form-control" placeholder="Masukkan Kontak Darurat...">
                             </div>
                         </div>
                     </div>

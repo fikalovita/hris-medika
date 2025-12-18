@@ -247,7 +247,7 @@ async function role() {
     const res = await axios.get(urlRole);
     const data = res.data.data;
     const select = document.getElementById('role');
-    select.innerHTML = '<option value="">-- Pilih Role --</option>';
+    select.innerHTML = '<option value="">-- Pilih Level Manager --</option>';
     data.forEach(item => {
       const option = document.createElement('option');
       option.value = item.kd_lvl;
