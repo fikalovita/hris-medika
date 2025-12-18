@@ -360,8 +360,18 @@
                             <div class="form-group">
                                 <label class="form-label">Role:</label>
                                 <div class="input-group">
-                                    <select id="role" class="form-control form-select"></select>
+                                    <select id="role" class="form-control form-select"
+                                        data-live-search="true"></select>
                                 </div>
+                                <small class="form-text text-muted">Please enter Profile URL</small>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label class="form-label">Manager:</label>
+                                <select id="manager" class="form-control form-select" data-live-search="true">
+                                    <option value="">-- Pilih Manager --</option>
+                                </select>
                                 <small class="form-text text-muted">Please enter Profile URL</small>
                             </div>
                         </div>

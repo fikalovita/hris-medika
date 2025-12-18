@@ -9,8 +9,10 @@ const urlPosisi = 'http://127.0.0.1:8000/api/posisi';
 const urlgolPekerjaan = 'http://127.0.0.1:8000/api/pegawai_gol_pekerjaan';
 const urlPtkpSttsAnak = 'http://127.0.0.1:8000/api/ptkp_stts_anak';
 const urlKelGolPekerjaan = 'http://127.0.0.1:8000/api/pegawai_kel_gol_pekerjaan';
-const urlJenisPekerjaan = 'http://127.0.0.1:8000/api/pegawai_jns_pekerjaan';
 const urlJenisKaryawan = 'http://127.0.0.1:8000/api/pegawai_jns_karyawan';
+const urlJenisPekerjaan = 'http://127.0.0.1:8000/api/pegawai_jns_pekerjaan';
+const urlRole = 'http://127.0.0.1:8000/api/pegawai_lvl';
+const urlRManager = 'http://127.0.0.1:8000/api/pegawai';
 // tabel list data pegawai
 const tabelPegawai = $('#new-cons').DataTable({
     responsive: {
@@ -239,4 +241,43 @@ async function jenisKaryawan() {
   }
 }
 jenisKaryawan();
+// select option jenis karyawan
+async function role() {
+  try {
+    const res = await axios.get(urlRole);
+    const data = res.data.data;
+    const select = document.getElementById('role');
+    select.innerHTML = '<option value="">-- Pilih Role --</option>';
+    data.forEach(item => {
+      const option = document.createElement('option');
+      option.value = item.kd_lvl;
+      option.textContent = item.nm_lvl;
+      select.appendChild(option);
+    });
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+role();
+async function manager() {
+  try {
+    const res = await axios.get(urlRManager);
+    const data = res.data.data;
+    const select = document.getElementById('manager');
+    select.innerHTML = '<option value="">-- Pilih Manager --</option>';
+    data.forEach(item => {
+      const option = document.createElement('option');
+      option.value = item.kd_pegawai;
+      option.textContent = item.nm_pegawai;
+      select.appendChild(option);
+    });
+
+  } catch (err) {
+    console.error(err);
+  }
+}
+manager();
+
+
 
