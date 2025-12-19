@@ -5,7 +5,11 @@ namespace App\Models;
 use App\Models\Bidang;
 use App\Models\Posisi;
 use App\Models\Provinsi;
+use App\Models\Kabupaten;
+use App\Models\Kecamatan;
+use App\Models\Kelurahan;
 use App\Models\PegawaiLvl;
+use App\Models\Perusahaan;
 use App\Models\KelompokUmur;
 use App\Models\PtkpSttsAnak;
 use App\Models\PegawaiJnsKaryawan;
@@ -73,6 +77,18 @@ class Pegawai extends Model
     {
         return $this->hasOne(Provinsi::class);
     }
+    public function kabupaten(): HasOne
+    {
+        return $this->hasOne(Kabupaten::class);
+    }
+    public function kelurahan(): HasOne
+    {
+        return $this->hasOne(Kelurahan::class);
+    }
+    public function kecamatan(): HasOne
+    {
+        return $this->hasOne(Kecamatan::class);
+    }
     public function bidang(): BelongsTo
     {
         return $this->belongsTo(Bidang::class);
@@ -108,5 +124,9 @@ class Pegawai extends Model
     public function ptkp_stts_anak(): BelongsTo
     {
         return $this->belongsTo(PtkpSttsAnak::class);
+    }
+    public function perusahaan(): BelongsTo
+    {
+        return $this->belongsTo(Perusahaan::class);
     }
 }

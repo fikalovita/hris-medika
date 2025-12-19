@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
+use DateTime;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -65,7 +66,12 @@ class PegawaiController extends Controller
             'nm_ibu' => 'required',
             'kontak_darurat' => 'required',
         ]);
-
+        $date = DateTime::createFromFormat('d/m/Y', $validate['tgl_lahir']);
+        $date2 = DateTime::createFromFormat('d/m/Y', $validate['tgl_pengangkatan']);
+        $date3 = DateTime::createFromFormat('d/m/Y', $validate['tmt']);
+        $tgl_lahir = $date->format('Y-m-d');
+        $tgl_pengangkatan = $date2->format('Y-m-d');
+        $tmt = $date3->format('Y-m-d');
         Pegawai::create([
             'id' => Str::uuid(),
             'nrp' => $validate['nrp'],
@@ -75,7 +81,7 @@ class PegawaiController extends Controller
             'jk' => $validate['jk'],
             'negara_kelahiran' => $validate['negara_kelahiran'],
             'kota_kelahiran' => $validate['kota_kelahiran'],
-            'tgl_lahir' => $validate['tgl_lahir'],
+            'tgl_lahir' => $tgl_lahir,
             'usia' => $validate['usia'],
             'kd_kelompok_umur' => $validate['kelompok_umur'],
             'alamat_utama' => $validate['alamat_utama'],
@@ -89,12 +95,12 @@ class PegawaiController extends Controller
             'no_telepon_kedua' => $validate['no_telepon_kedua'],
             'email_utama' => $validate['email_utama'],
             'email_kedua' => $validate['email_kedua'],
-            'tmt' => $validate['tmt'],
+            'tmt' => $tmt,
             'stts_menikah' => $validate['stts_menikah'],
             'kd_ptkp_status_anak' => $validate['ptkp_status_anak'],
             'kd_perusahaan' => $validate['perusahaan'],
             'kd_bidang' => $validate['bidang'],
-            'tgl_pengangkatan' => $validate['tgl_pengangkatan'],
+            'tgl_pengangkatan' => $tgl_pengangkatan,
             'kd_posisi' => $validate['posisi'],
             'kd_lvl_manager' => $validate['lvl_manager'],
             'kd_gol_pekerjaan' => $validate['gol_pekerjaan'],

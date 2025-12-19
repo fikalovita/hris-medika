@@ -3,18 +3,18 @@
 namespace App\Models;
 
 use App\Models\Pegawai;
-use App\Models\Kabupaten;
+use App\Models\Provinsi;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Provinsi extends Model
+class Kabupaten extends Model
 {
     use HasFactory;
 
-    protected $table = 'provinsi';
-    protected $primaryKey = 'kd_provinsi';
+    protected $table = 'kabupaten';
+    protected $primaryKey = 'kd_kabupaten';
     public $timestamps = false;
 
     public function pegawai(): BelongsTo
@@ -22,8 +22,12 @@ class Provinsi extends Model
         return $this->belongsTo(Pegawai::class);
     }
 
-    public function kabupaten(): HasMany
-    {
-        return $this->hasMany(Kabupaten::class, 'kd_provinsi', 'kd_provinsi');
+    public function provinsi(): BelongsTo {
+        return $this->belongsTo(Provinsi::class);
     }
+
+    public function kecamatan(): HasMany {
+        return $this->hasMany(Kecamatan::class, 'kd_kabupaten', 'kd_kabupaten');
+    }
+
 }

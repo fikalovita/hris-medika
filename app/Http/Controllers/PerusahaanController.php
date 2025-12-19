@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Perusahaan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class PerusahaanController extends Controller
 {
@@ -14,7 +15,7 @@ class PerusahaanController extends Controller
     public function index()
     {
         $dataPerusahaan = Perusahaan::all();
-        return response()->json($dataPerusahaan);
+        return DataTables::of($dataPerusahaan)->make(true);
     }
 
     /**
@@ -60,7 +61,7 @@ class PerusahaanController extends Controller
             'nm_perusahaan' => $validated['nm_perusahaan']
         ]);
 
-        return response()->json(['message data berhasil diubah']);
+        return response()->json(['message' => 'data berhasil diubah']);
     }
 
     /**
@@ -70,6 +71,12 @@ class PerusahaanController extends Controller
     {
         $kd_perusahaan = $request->kd_perusahaan;
         $perusahaan = Perusahaan::find($kd_perusahaan);
+        if (!$perusahaan) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
+        if ($perusahaan->pegawai()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
+        }
         $perusahaan->delete();
 
         return response()->json(['message' => 'data berhasil dihapus']);

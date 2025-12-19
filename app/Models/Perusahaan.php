@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Pegawai;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Perusahaan extends Model
 {
@@ -13,4 +15,9 @@ class Perusahaan extends Model
     public $timestamps = false;
     public $incrementing = false;
     protected $fillable = ['kd_perusahaan', 'nm_perusahaan'];
+
+    public function pegawai(): HasMany
+    {
+        return $this->hasMany(Pegawai::class, 'kd_perusahaan', 'kd_perusahaan');
+    }
 }

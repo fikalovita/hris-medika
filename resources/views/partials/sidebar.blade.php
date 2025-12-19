@@ -18,9 +18,10 @@
         <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link"><span class="pc-micon"><i class="ti ti-menu"></i></span><span class="pc-mtext">Master Data</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="{{ route('bidang') }}" id="btn-bidang">Bidang</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('bidang') }}">Bidang</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('perusahaan') }}">Perusahaan</a></li>
             <li class="pc-item"><a class="pc-link" href="{{ route('posisi') }}">Posisi</a></li>
-            <li class="pc-item"><a class="pc-link" href="{{ route('role') }}">Role</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('role') }}">Level Manager</a></li>
             <li class="pc-item"><a class="pc-link" href="{{ route('kelompok_umur') }}">Kelompok Umur</a></li>
             <li class="pc-item"><a class="pc-link" href="{{ route('jenis_pekerjaan') }}">Jenis Pekerjaan</a></li>
             <li class="pc-item"><a class="pc-link" href="{{ route('jenis_karyawan') }}">Jenis Karyawan</a></li>

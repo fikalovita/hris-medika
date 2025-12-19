@@ -3,27 +3,28 @@
 namespace App\Models;
 
 use App\Models\Pegawai;
-use App\Models\Kabupaten;
+use App\Models\Kecamatan;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Symfony\Component\CssSelector\Node\FunctionNode;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Provinsi extends Model
+class Kelurahan extends Model
 {
     use HasFactory;
 
-    protected $table = 'provinsi';
-    protected $primaryKey = 'kd_provinsi';
+    protected $table = 'kelurahan';
+    protected $primaryKey = 'kd_kelurahan';
     public $timestamps = false;
 
     public function pegawai(): BelongsTo
     {
         return $this->belongsTo(Pegawai::class);
     }
-
-    public function kabupaten(): HasMany
+    public function kecamatan(): BelongsTo
     {
-        return $this->hasMany(Kabupaten::class, 'kd_provinsi', 'kd_provinsi');
+        return $this->belongsTo(Kecamatan::class);
     }
+
+    
 }

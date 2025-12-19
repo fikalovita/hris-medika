@@ -10,9 +10,13 @@ use App\Http\Controllers\BidangController;
 use App\Http\Controllers\PosisiController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\ProvinsiController;
+use App\Http\Controllers\KabupatenController;
+use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\PegawaiLvlController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\KelompokUmurController;
+use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\PtkpSttsAnakController;
 use App\Http\Controllers\PegawaiJnsKaryawanController;
 use App\Http\Controllers\PegawaiGolPekerjaanController;
@@ -49,8 +53,8 @@ Route::delete('/delete_bidang', [BidangController::class, 'destroy']);
 //routes perusahaan
 Route::get('/perusahaan', [PerusahaanController::class, 'index']);
 Route::post('/add_perusahaan', [PerusahaanController::class, 'store']);
-Route::put('/detail_perusahaan', [PerusahaanController::class, 'show']);
-Route::post('/update_perusahaan', [PerusahaanController::class, 'update']);
+Route::get('/detail_perusahaan', [PerusahaanController::class, 'show']);
+Route::put('/update_perusahaan', [PerusahaanController::class, 'update']);
 Route::delete('/delete_perusahaan', [PerusahaanController::class, 'destroy']);
 
 //routes kelompok umur
@@ -101,3 +105,9 @@ Route::post('/add_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController:
 Route::get('/detail_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'show']);
 Route::put('/update_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'update']);
 Route::delete('/delete_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'destroy']);
+
+// route provinsi
+Route::get('/provinsi', [ProvinsiController::class, 'index']);
+Route::get('/kabupaten/{provinsi}', [KabupatenController::class, 'index']);
+Route::get('/kecamatan/{kabupaten}', [KecamatanController::class, 'index']);
+Route::get('/kelurahan/{kecamatan}', [KelurahanController::class, 'index']);

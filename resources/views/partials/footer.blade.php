@@ -27,6 +27,7 @@
 <script src="../assets/js/plugins/responsive.bootstrap5.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
 {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
+<script src="../assets/js/plugins/datepicker-full.min.js"></script>
 <script>layout_change('light');</script>
 <script>change_box_container('false');</script>
 <script>layout_rtl_change('false');</script>
