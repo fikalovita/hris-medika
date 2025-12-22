@@ -14,6 +14,6 @@ class KecamatanController extends Controller
     {
         $kecamatan = Kecamatan::where('kd_kabupaten', $kd_kabupaten)->select('kd_kecamatan', 'nm_kecamatan')->orderBy('nm_kecamatan')->get();
 
-        return response()->json($kecamatan);
+        return response()->json(['data' => $kecamatan]);
     }
 }

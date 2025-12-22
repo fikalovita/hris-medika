@@ -26,9 +26,9 @@ use App\Http\Controllers\PegawaiKelGolPekerjaanController;
 //routes Pegawai
 Route::get('/pegawai', [PegawaiController::class, 'index']);
 Route::post('/add_pegawai', [PegawaiController::class, 'store']);
-Route::post('/update_pegawai', [PegawaiController::class, 'update']);
+Route::put('/update_pegawai', [PegawaiController::class, 'update']);
 Route::delete('/delete_pegawai', [PegawaiController::class, 'destroy']);
-Route::put('/detail_pegawai', [PegawaiController::class, 'show']);
+Route::get('/detail_pegawai', [PegawaiController::class, 'show']);
 //routes kategori
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::post('/add_kategori', [KategoriController::class, 'store']);

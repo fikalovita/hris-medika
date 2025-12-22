@@ -14,6 +14,6 @@ class KelurahanController extends Controller
     {
         $kelurahan = Kelurahan::where('kd_kecamatan', $kd_kecamatan)->select('kd_kelurahan', 'nm_kelurahan')->orderBy('nm_kelurahan')->get();
 
-        return response()->json($kelurahan);
+        return response()->json(['data' => $kelurahan]);
     }
 }

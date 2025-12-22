@@ -11,7 +11,7 @@ class ProvinsiController extends Controller
     {
         $provinsi = Provinsi::orderBy('nm_provinsi')->get(['kd_provinsi','nm_provinsi'])->values();
 
-        return response()->json($provinsi);
+        return response()->json(['data' => $provinsi]);
     }
     
 }

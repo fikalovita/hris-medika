@@ -14,6 +14,6 @@ class KabupatenController extends Controller
     {
         $kabupaten = Kabupaten::where('kd_provinsi', $kd_provinsi)->select('kd_kabupaten','nm_kabupaten')->orderBy('nm_kabupaten')->get();
 
-        return response()->json($kabupaten);
+        return response()->json(['data' => $kabupaten]);
     }
 }
