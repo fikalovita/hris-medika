@@ -419,16 +419,16 @@
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal Form Tambah Pegawai</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modal Form Edit Pegawai</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-pegawai">
+                <form id="form-edit-pegawai">
                     <div class="row g-3">
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">NRP</label>
-                                <input type="email" class="form-control edit-pegawai" placeholder="Masukkan NRP..." name="nrp" data-key="nrp">
+                                <input type="text" class="form-control edit-pegawai" placeholder="Masukkan NRP..." name="nrp" data-key="nrp">
                             </div>
                         </div>
                         <div class="col-lg-4">
@@ -451,7 +451,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Pekerja Aktif:</label>
-                                <select id="inputState" class="form-control form-select edit-pegawai" name="pekerja_aktif" data-key="pekerja_aktif">
+                                <select id="edit-pekerja-aktif" class="form-control form-select edit-pegawai" name="pekerja_aktif" data-key="pekerja_aktif">
                                     <option value="Ya">Ya</option>
                                     <option value="Tidak">Tidak</option>
                                 </select>
@@ -460,7 +460,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Jenis Kelamin:</label>
-                                <select id="inputState" class="form-control form-select edit-pegawai" name="jk" data-key="jk">
+                                <select id="edit-jk" class="form-control form-select edit-pegawai" name="jk" data-key="jk">
                                     <option value="Laki-laki">Laki-Laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                 </select>
@@ -506,7 +506,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Kelompok Umur:</label>
-                                <select id="kelompok_umur" class="form-control form-select edit-pegawai" name="kelompok_umur" data-key="kelompok_umur"></select>
+                                <select id="edit-kelompok-umur" class="form-control form-select edit-pegawai" name="kelompok_umur" data-key="kelompok_umur"></select>
                                
                             </div>
                         </div>
@@ -529,20 +529,20 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Provinsi:</label>
-                                <select id="provinsi" class="form-control form-select edit-pegawai" name="provinsi" data-key="provinsi">
+                                <select id="edit-provinsi" class="form-control form-select edit-pegawai" name="provinsi" data-key="provinsi">
                                 </select>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Kabupaten:</label>
-                                <select id="kabupaten" class="form-control form-select edit-pegawai" name="kabupaten" data-key="kabupaten"></select>
+                                <select id="edit-kabupaten" class="form-control form-select edit-pegawai" name="kabupaten" data-key="kabupaten"></select>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Kecamatan:</label>
-                                <select id="kecamatan" class="form-control form-select edit-pegawai" name="kecamatan" data-key="kecamatan">
+                                <select id="edit-kecamatan" class="form-control form-select edit-pegawai" name="kecamatan" data-key="kecamatan">
                                 </select>
                                 
                             </div>
@@ -552,7 +552,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Kelurahan:</label>
-                                <select id="kelurahan" class="form-control form-select edit-pegawai" name="kelurahan" data-key="kelurahan">
+                                <select id="edit-kelurahan" class="form-control form-select edit-pegawai" name="kelurahan" data-key="kelurahan">
                                 </select>
                             </div>
                         </div>
@@ -611,7 +611,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Status Menikah:</label>
-                                <select id="inputState" class="form-control form-select edit-pegawai" name="stts_menikah" data-key="stts_menikah">
+                                <select id="edit-status-nikah" class="form-control form-select edit-pegawai" name="stts_menikah" data-key="stts_menikah">
                                     <option>Kawin</option>
                                     <option>Belum Kawin</option>
                                     <option>Cerai Mati</option>
@@ -623,7 +623,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Status PTKP Anak:</label>
-                                <select id="ptkp-stts-anak" class="form-control form-select edit-pegawai" name="ptkp_status_anak" data-key="ptkp_status_anak"></select>
+                                <select id="edit-ptkp-stts-anak" class="form-control form-select edit-pegawai" name="ptkp_status_anak" data-key="ptkp_status_anak"></select>
                                 
                             </div>
                         </div>
@@ -633,7 +633,7 @@
                             <div class="form-group">
                                 <label class="form-label">Bidang:</label>
                                 <div class="input-group">
-                                    <select id="bidang" class="form-control form-select edit-pegawai" name="bidang"  data-key="bidang"></select>
+                                    <select id="edit-bidang" class="form-control form-select edit-pegawai" name="bidang"  data-key="bidang"></select>
                                 </div>
                             </div>
                         </div>
@@ -653,7 +653,7 @@
                             <div class="form-group">
                                 <label class="form-label">Posisi:</label>
                                 <div class="input-group">
-                                    <select id="posisi" class="form-control form-select edit-pegawai" name="posisi" data-key="posisi"></select>
+                                    <select id="edit-posisi" class="form-control form-select edit-pegawai" name="posisi" data-key="posisi"></select>
                                 </div>
                             </div>
                         </div>
@@ -663,7 +663,7 @@
                             <div class="form-group">
                                 <label class="form-label">Perusahaan:</label>
                                 <div class="input-group">
-                                    <select id="kd_perusahaan" class="form-control form-select edit-pegawai" name="perusahaan" data-key="kd_perusahaan"></select>
+                                    <select id="edit-perusahaan" class="form-control form-select edit-pegawai" name="perusahaan" data-key="kd_perusahaan"></select>
                                 </div>
                             </div>
                         </div>
@@ -671,7 +671,7 @@
                             <div class="form-group">
                                 <label class="form-label">Golongan Pekerjaan:</label>
                                 <div class="input-group">
-                                    <select id="gol-pekerjaan" class="form-control form-select edit-pegawai" name="gol_pekerjaan" data-key="gol_pekerjaan"></select>
+                                    <select id="edit-gol-pekerjaan" class="form-control form-select edit-pegawai" name="gol_pekerjaan" data-key="gol_pekerjaan"></select>
                                 </div>
                                 
                             </div>
@@ -680,7 +680,7 @@
                             <div class="form-group">
                                 <label class="form-label">Jenis Pekerjaan:</label>
                                 <div class="input-group">
-                                    <select id="jenis-pekerjaan" class="form-control form-select edit-pegawai" name="jns_pekerjaan" data-key="jns_pekerjaan"></select>
+                                    <select id="edit-jenis-pekerjaan" class="form-control form-select edit-pegawai" name="jns_pekerjaan" data-key="jns_pekerjaan"></select>
                                 </div>
                                
                             </div>
@@ -689,7 +689,7 @@
                             <div class="form-group">
                                 <label class="form-label">Jenis Karyawan:</label>
                                 <div class="input-group">
-                                    <select id="jenis-karyawan" class="form-control form-select edit-pegawai" name="jns_karyawan" data-key="jns_karyawan"></select>
+                                    <select id="edit-jenis-karyawan" class="form-control form-select edit-pegawai" name="jns_karyawan" data-key="jns_karyawan"></select>
                                 </div>
                                 
                             </div>
@@ -698,7 +698,7 @@
                             <div class="form-group">
                                 <label class="form-label">Kelompok Golongan Pekerjaan:</label>
                                 <div class="input-group">
-                                    <select id="kel-gol-pekerjaan" class="form-control form-select edit-pegawai" name="kelompok_gol_pekerjaan" data-key="kelompok_gol_pekerjaan"></select>
+                                    <select id="edit-kel-gol-pekerjaan" class="form-control form-select edit-pegawai" name="kelompok_gol_pekerjaan" data-key="kelompok_gol_pekerjaan"></select>
                                 </div>
                                
                             </div>
@@ -707,8 +707,8 @@
                             <div class="form-group">
                                 <label class="form-label">Level Manager:</label>
                                 <div class="input-group">
-                                    <select id="role" class="form-control form-select"
-                                        data-live-search="true" name="lvl_manager edit-pegawai" data-key="lvl_manager"></select>
+                                    <select id="edit-role" class="form-control form-select edit-pegawai"
+                                        data-live-search="true" name="lvl_manager" data-key="lvl_manager"></select>
                                 </div>
                                
                             </div>
@@ -716,7 +716,7 @@
                         <div class="col-lg-4">
                             <div class="form-group">
                                 <label class="form-label">Manager:</label>
-                                <select id="manager" class="form-control form-select edit-pegawai" name="manager" data-key="manager">
+                                <select id="edit-manager" class="form-control form-select edit-pegawai" name="manager" data-key="manager">
                                 </select>
                                 
                             </div>
@@ -760,7 +760,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="submit-pegawai">Simpan</button>
+                <button type="button" class="btn btn-primary" id="btn-update-pegawai">Simpan</button>
             </div>
         </div>
     </div>

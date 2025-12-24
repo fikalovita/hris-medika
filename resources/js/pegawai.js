@@ -136,7 +136,7 @@ async function loadOptions(selectId, url, selectedValue = '', keyValue = 'value'
             console.error('Select element tidak ditemukan:', selectId);
             return;
         }
-        
+
         const res = await axios.get(url);
         const data = res.data.data
 
@@ -152,19 +152,20 @@ async function loadOptions(selectId, url, selectedValue = '', keyValue = 'value'
         console.error('Gagal load options', selectId, err);
     }
 }
-// select option kelompok umur
-loadOptions('kelompok_umur', urlKelompokUmur,'', 'kd_kelompok_umur', 'nm_kelompok_umur');
-loadOptions('bidang', urlBidang,'', 'kd_bidang', 'nm_bidang');
-loadOptions('posisi', urlPosisi,'', 'kd_posisi', 'nm_posisi');
-loadOptions('gol-pekerjaan', urlgolPekerjaan,'', 'kd_gol_pekerjaan', 'nm_gol_pekerjaan');
-loadOptions('ptkp-stts-anak', urlPtkpSttsAnak,'', 'kd_ptkp', 'nm_ptkp');
-loadOptions('gol-pekerjaan', urlKelGolPekerjaan,'', 'kd_kelompok_gol_pekerjaan', 'nm_kelompok_gol_pekerjaan');
-loadOptions('jenis-pekerjaan', urlJenisPekerjaan,'', 'kd_jns_pekerjaan', 'nm_jns_pekerjaan');
-loadOptions('jenis-karyawan', urlJenisKaryawan,'', 'kd_jns_karyawan', 'nm_jns_karyawan');
-loadOptions('perusahaan', urlPerusahaan,'', 'kd_perusahaan', 'nm_perusahaan');
-loadOptions('role', urlRole,'', 'kd_lvl', 'nm_lvl');
-loadOptions('manager', urlManager,'', 'nrp', 'nm_pegawai');
-loadOptions('provinsi', urlProvinsi,'', 'kd_provinsi', 'nm_provinsi');
+// select option
+loadOptions('kelompok_umur', urlKelompokUmur, '', 'kd_kelompok_umur', 'nm_kelompok_umur');
+loadOptions('bidang', urlBidang, '', 'kd_bidang', 'nm_bidang');
+loadOptions('posisi', urlPosisi, '', 'kd_posisi', 'nm_posisi');
+loadOptions('gol-pekerjaan', urlgolPekerjaan, '', 'kd_gol_pekerjaan', 'nm_gol_pekerjaan');
+loadOptions('ptkp-stts-anak', urlPtkpSttsAnak, '', 'kd_ptkp', 'nm_ptkp');
+loadOptions('jenis-pekerjaan', urlJenisPekerjaan, '', 'kd_jns_pekerjaan', 'nm_jns_pekerjaan');
+loadOptions('jenis-karyawan', urlJenisKaryawan, '', 'kd_jns_karyawan', 'nm_jns_karyawan');
+loadOptions('perusahaan', urlPerusahaan, '', 'kd_perusahaan', 'nm_perusahaan');
+loadOptions('role', urlRole, '', 'kd_lvl', 'nm_lvl');
+loadOptions('manager', urlManager, '', 'nrp', 'nm_pegawai');
+loadOptions('provinsi', urlProvinsi, '', 'kd_provinsi', 'nm_provinsi');
+loadOptions('kel-gol-pekerjaan', urlKelGolPekerjaan, '', 'kd_kelompok_gol_pekerjaan', 'nm_kelompok_gol_pekerjaan');
+
 function kabupaten() {
     document.getElementById('provinsi').addEventListener('change', function () {
         const kd_provinsi = this.value;
@@ -174,11 +175,12 @@ function kabupaten() {
             return;
         }
 
-        loadOptions('kabupaten', `${urlKabupaten}/${kd_provinsi}`,'', 'kd_kabupaten', 'nm_kabupaten');
+        loadOptions('kabupaten', `${urlKabupaten}/${kd_provinsi}`, '', 'kd_kabupaten', 'nm_kabupaten');
 
     })
 }
 kabupaten();
+
 function kecamatan() {
     document.getElementById('kabupaten').addEventListener('change', function () {
         const kd_kabupaten = this.value;
@@ -187,10 +189,11 @@ function kecamatan() {
             kecamatan.innerHTML = '<option value="">-- Pilih Kecamatan --</option>';
             return;
         }
-        loadOptions('kecamatan', `${urlKecamatan}/${kd_kabupaten}`,'', 'kd_kecamatan', 'nm_kecamatan');
+        loadOptions('kecamatan', `${urlKecamatan}/${kd_kabupaten}`, '', 'kd_kecamatan', 'nm_kecamatan');
     })
 }
 kecamatan();
+
 function kelurahan() {
     document.getElementById('kecamatan').addEventListener('change', function () {
         const kd_kecamatan = this.value;
@@ -199,8 +202,235 @@ function kelurahan() {
             kelurahan.innerHTML = '<option value="">-- Pilih Kelurahan --</option>';
             return;
         }
-        loadOptions('kelurahan', `${urlKelurahan}/${kd_kecamatan}`,'', 'kd_kelurahan', 'nm_kelurahan');
+        loadOptions('kelurahan', `${urlKelurahan}/${kd_kecamatan}`, '', 'kd_kelurahan', 'nm_kelurahan');
     })
 }
 kelurahan();
+// end select option
+// edit pegawai
+
+document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.btn-edit-pegawai');
+    if (!btn) return;
+
+    const modalEditkgp = new bootstrap.Modal(
+        document.getElementById('modal-edit-pegawai')
+    );
+    modalEditkgp.show();
+
+    const id = btn.getAttribute('data-id');
+
+    axios.get('http://127.0.0.1:8000/api/detail_pegawai', {
+            params: {
+                id
+            }
+        })
+        .then(async response => {
+            const data = response.data;
+            await Promise.all([
+                loadOptions(
+                    'edit-kelompok-umur',
+                    urlKelompokUmur,
+                    data.kd_kelompok_umur,
+                    'kd_kelompok_umur',
+                    'nm_kelompok_umur'
+                ),
+                loadOptions(
+                    'edit-provinsi',
+                    urlProvinsi,
+                    data.kd_provinsi,
+                    'kd_provinsi',
+                    'nm_provinsi'
+                ),
+                loadOptions(
+                    'edit-ptkp-stts-anak',
+                    urlPtkpSttsAnak,
+                    data.kd_ptkp_status_anak,
+                    'kd_ptkp',
+                    'nm_ptkp'
+                ),
+                loadOptions(
+                    'edit-bidang',
+                    urlBidang,
+                    data.kd_bidang,
+                    'kd_bidang',
+                    'nm_bidang'
+                ),
+                loadOptions(
+                    'edit-posisi',
+                    urlPosisi,
+                    data.kd_posisi,
+                    'kd_posisi',
+                    'nm_posisi'
+                ),
+                loadOptions(
+                    'edit-perusahaan',
+                    urlPerusahaan,
+                    data.kd_perusahaan,
+                    'kd_perusahaan',
+                    'nm_perusahaan'
+                ),
+                loadOptions(
+                    'edit-gol-pekerjaan',
+                    urlgolPekerjaan,
+                    data.kd_gol_pekerjaan,
+                    'kd_gol_pekerjaan',
+                    'nm_gol_pekerjaan'
+                ),
+                loadOptions(
+                    'edit-jenis-pekerjaan',
+                    urlJenisPekerjaan,
+                    data.kd_jns_pekerjaan,
+                    'kd_jns_pekerjaan',
+                    'nm_jns_pekerjaan'
+                ),
+                loadOptions(
+                    'edit-jenis-karyawan',
+                    urlJenisKaryawan,
+                    data.kd_jns_karyawan,
+                    'kd_jns_karyawan',
+                    'nm_jns_karyawan'
+                ),
+                loadOptions(
+                    'edit-kel-gol-pekerjaan',
+                    urlKelGolPekerjaan,
+                    data.kd_kelompok_gol_pekerjaan,
+                    'kd_kelompok_gol_pekerjaan',
+                    'nm_kelompok_gol_pekerjaan'
+                ),
+                loadOptions(
+                    'edit-role',
+                    urlRole,
+                    data.kd_lvl_manager,
+                    'kd_lvl',
+                    'nm_lvl'
+                ),
+                loadOptions(
+                    'edit-manager',
+                    urlManager,
+                    data.nrp,
+                    'nrp',
+                    'nm_pegawai'
+                ),
+                
+            ])
+
+            await loadOptions(
+                'edit-kabupaten',
+                `${urlKabupaten}/${data.kd_provinsi}`,
+                data.kd_kabupaten,
+                'kd_kabupaten',
+                'nm_kabupaten'
+                    
+            )
+            await loadOptions(
+                'edit-kecamatan',
+                `${urlKecamatan}/${data.kd_kabupaten}`,
+                data.kd_kecamatan,
+                'kd_kecamatan',
+                'nm_kecamatan'
+                    
+            )
+            await loadOptions(
+                'edit-kelurahan',
+                `${urlKelurahan}/${data.kd_kecamatan}`,
+                data.kd_kelurahan,
+                'kd_kelurahan',
+                'nm_kelurahan'
+                    
+            )
+
+            return data;
+        })
+        .then(data => {
+            document.querySelectorAll('.edit-pegawai').forEach(field => {
+                const key = field.dataset.key;
+
+                if (data[key] !== undefined && field.tagName !== 'SELECT') {
+                    field.value = data[key];
+                }
+            });
+        })
+        .catch(err => console.error(err));
+});
+let currentEditId = null;
+
+document.addEventListener('click', async function(e) {
+    const btn = e.target.closest('.btn-edit-pegawai');
+    if (!btn) return;
+
+    const id = btn.getAttribute('data-id');
+    currentEditId = id;
+
+    const modal = new bootstrap.Modal(document.getElementById('modal-edit-pegawai'));
+    modal.show();
+
+    // Ambil data pegawai
+    const { data } = await axios.get('http://127.0.0.1:8000/api/detail_pegawai', { params: { id } });
+    
+    // isi form
+    document.querySelectorAll('.edit-pegawai').forEach(field => {
+        const key = field.dataset.key;
+        if (data[key] !== undefined) field.value = data[key];
+    });
+
+    // Load select options (misal provinsi/kabupaten/kecamatan)
+    await loadOptions('edit-provinsi', urlProvinsi, data.kd_provinsi, 'kd_provinsi', 'nm_provinsi');
+    await loadOptions('edit-kabupaten', `${urlKabupaten}/${data.kd_provinsi}`, data.kd_kabupaten, 'kd_kabupaten', 'nm_kabupaten');
+    // ...dst
+});
+
+// Ambil modal
+const modalEdit = document.getElementById('modal-edit-pegawai');
+
+// Hapus backdrop setiap kali modal ditutup
+modalEdit.addEventListener('hidden.bs.modal', function () {
+    const backdrop = document.querySelectorAll('.modal-backdrop');
+    backdrop.forEach(el => el.remove());
+});
+
+// Listener tombol update tetap terpisah
+document.getElementById('btn-update-pegawai').addEventListener('click', async function (e) {
+    e.preventDefault();
+    const btn = this;
+    const form = document.getElementById('form-edit-pegawai');
+
+    const formData = new FormData(form);
+    const data = {};
+    formData.forEach((value, key) => data[key] = value);
+    data.id = currentEditId;
+
+    btn.disabled = true;
+    try {
+        const response = await axios.put('http://127.0.0.1:8000/api/update_pegawai', data, {
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+        });
+
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: response.data.message || 'Data berhasil diubah',
+            showConfirmButton: false,
+            timer: 1500
+        });
+
+        tabelPegawai.ajax.reload(null, false);
+        // Modal tetap terbuka, jadi tidak di-hide
+
+    } catch (error) {
+        let message = 'Terjadi kesalahan';
+        if (error.response?.data?.errors) {
+            message = Object.values(error.response.data.errors).flat().join('\n');
+        } else if (error.response?.data?.message) {
+            message = error.response.data.message;
+        }
+
+        Swal.fire({ icon: 'error', title: 'Oops...', text: message });
+    } finally {
+        btn.disabled = false;
+    }
+});
+
+
+
 
