@@ -19,6 +19,6 @@ class Posisi extends Model
 
     public function pegawai(): HasMany
     {
-        return $this->hasMany(Pegawai::class, 'kd_posisi', 'kd_posisi');
+        return $this->hasMany(Pegawai::class, 'kd_posisi');
     }
 }

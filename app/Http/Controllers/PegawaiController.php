@@ -124,7 +124,7 @@ class PegawaiController extends Controller
     public function show(Request $request)
     {
         $id = $request->id;
-        $pegawai = Pegawai::find($id);
+        $pegawai = Pegawai::with(['provinsi', 'kabupaten', 'kelurahan', 'kecamatan', 'pegawai_bidang', 'pegawai_posisi', 'pegawai_bidang', 'perusahaan', 'ptkp_stts_anak', 'pegawai_jns_karyawan', 'pegawai_jns_pekerjaan', 'pegawai_kel_gol_pekerjaan', 'pegawai_lvl', 'pegawai_gol_pekerjaan', 'kelompok_umur'])->find($id);
         if (!$pegawai) {
             return response()->json(['message' => 'data tidak ditemukan'], 404);
         }

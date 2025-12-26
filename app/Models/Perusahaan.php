@@ -18,6 +18,6 @@ class Perusahaan extends Model
 
     public function pegawai(): HasMany
     {
-        return $this->hasMany(Pegawai::class, 'kd_perusahaan', 'kd_perusahaan');
+        return $this->hasMany(Pegawai::class, 'kd_perusahaan');
     }
 }

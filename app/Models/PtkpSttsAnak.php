@@ -21,6 +21,6 @@ class PtkpSttsAnak extends Model
 
     public function pegawai(): HasMany
     {
-        return $this->hasMany(Pegawai::class, 'kd_ptkp_status_anak', 'kd_ptkp');
+        return $this->hasMany(Pegawai::class, 'kd_ptkp_status_anak');
     }
 }

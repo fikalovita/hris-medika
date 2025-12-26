@@ -19,6 +19,6 @@ class PegawaiLvl extends Model
 
     public function pegawai(): HasMany
     {
-        return $this->hasMany(Pegawai::class, 'kd_lvl_manager', 'kd_lvl');
+        return $this->hasMany(Pegawai::class, 'kd_lvl_manager');
     }
 }

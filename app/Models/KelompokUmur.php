@@ -19,6 +19,6 @@ class KelompokUmur extends Model
 
     public function pegawai(): HasMany
     {
-        return $this->hasMany(Pegawai::class, 'kd_kelompok_umur', 'kd_kelompok_umur');
+        return $this->hasMany(Pegawai::class, 'kd_kelompok_umur');
     }
 }

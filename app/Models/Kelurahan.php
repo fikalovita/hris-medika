@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\CssSelector\Node\FunctionNode;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Kelurahan extends Model
 {
@@ -17,9 +18,9 @@ class Kelurahan extends Model
     protected $primaryKey = 'kd_kelurahan';
     public $timestamps = false;
 
-    public function pegawai(): BelongsTo
+    public function pegawai(): HasMany
     {
-        return $this->belongsTo(Pegawai::class);
+        return $this->hasMany(Pegawai::class, 'kd_kelurahan');
     }
     public function kecamatan(): BelongsTo
     {

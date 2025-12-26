@@ -20,6 +20,6 @@ class Bidang extends Model
 
     public function pegawai(): HasMany
     {
-        return $this->hasMany(Pegawai::class, 'kd_bidang', 'kd_bidang');
+        return $this->hasMany(Pegawai::class, 'kd_bidang');
     }
 }

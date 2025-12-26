@@ -20,6 +20,6 @@ class PegawaiJnsPekerjaan extends Model
 
     public function pegawai(): HasMany
     {
-        return $this->hasMany(Pegawai::class, 'kd_jns_pekerjaan', 'kd_jns_pekerjaan');
+        return $this->hasMany(Pegawai::class, 'kd_jns_pekerjaan');
     }
 }

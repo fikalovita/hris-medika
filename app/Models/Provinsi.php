@@ -17,13 +17,13 @@ class Provinsi extends Model
     protected $primaryKey = 'kd_provinsi';
     public $timestamps = false;
 
-    public function pegawai(): BelongsTo
+    public function pegawai(): HasMany
     {
-        return $this->belongsTo(Pegawai::class);
+        return $this->hasMany(Pegawai::class, 'kd_provinsi');
     }
 
     public function kabupaten(): HasMany
     {
-        return $this->hasMany(Kabupaten::class, 'kd_provinsi', 'kd_provinsi');
+        return $this->hasMany(Kabupaten::class, 'kd_provinsi');
     }
 }

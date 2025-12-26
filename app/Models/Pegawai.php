@@ -73,60 +73,60 @@ class Pegawai extends Model
         'kontak_darurat',
     ];
 
-    public function provinsi(): HasOne
+    public function provinsi(): BelongsTo
     {
-        return $this->hasOne(Provinsi::class);
+        return $this->belongsTo(Provinsi::class, 'kd_provinsi');
     }
-    public function kabupaten(): HasOne
+    public function kabupaten(): BelongsTo
     {
-        return $this->hasOne(Kabupaten::class);
+        return $this->belongsTo(Kabupaten::class, 'kd_kabupaten');
     }
-    public function kelurahan(): HasOne
+    public function kelurahan(): BelongsTo
     {
-        return $this->hasOne(Kelurahan::class);
+        return $this->belongsTo(Kelurahan::class, 'kd_kelurahan');
     }
-    public function kecamatan(): HasOne
+    public function kecamatan(): BelongsTo
     {
-        return $this->hasOne(Kecamatan::class);
+        return $this->belongsTo(Kecamatan::class, 'kd_kecamatan');
     }
-    public function bidang(): BelongsTo
+    public function pegawai_bidang(): BelongsTo
     {
-        return $this->belongsTo(Bidang::class);
+        return $this->belongsTo(Bidang::class, 'kd_bidang');
     }
-    public function posisi(): BelongsTo
+    public function pegawai_posisi(): BelongsTo
     {
-        return $this->belongsTo(Posisi::class);
+        return $this->belongsTo(Posisi::class, 'kd_posisi');
     }
-    public function role(): BelongsTo
+    public function pegawai_lvl(): BelongsTo
     {
-        return $this->belongsTo(PegawaiLvl::class);
+        return $this->belongsTo(PegawaiLvl::class, 'kd_lvl_manager');
     }
     public function kelompok_umur(): BelongsTo
     {
-        return $this->belongsTo(KelompokUmur::class);
+        return $this->belongsTo(KelompokUmur::class, 'kd_kelompok_umur');
     }
-    public function jenis_pekerjaan(): BelongsTo
+    public function pegawai_jns_pekerjaan(): BelongsTo
     {
-        return $this->belongsTo(PegawaiJnsPekerjaan::class);
+        return $this->belongsTo(PegawaiJnsPekerjaan::class, 'kd_jns_pekerjaan');
     }
-    public function jenis_karyawan(): BelongsTo
+    public function pegawai_jns_karyawan(): BelongsTo
     {
-        return $this->belongsTo(PegawaiJnsKaryawan::class);
+        return $this->belongsTo(PegawaiJnsKaryawan::class, 'kd_jns_karyawan');
     }
-    public function golongan_pekerjaan(): BelongsTo
+    public function pegawai_gol_pekerjaan(): BelongsTo
     {
-        return $this->belongsTo(PegawaiGolPekerjaan::class);
+        return $this->belongsTo(PegawaiGolPekerjaan::class, 'kd_gol_pekerjaan');
     }
-    public function kel_golongan_pekerjaan(): BelongsTo
+    public function pegawai_kel_gol_pekerjaan(): BelongsTo
     {
-        return $this->belongsTo(PegawaiKelGolPekerjaan::class);
+        return $this->belongsTo(PegawaiKelGolPekerjaan::class, 'kd_kelompok_gol_pekerjaan');
     }
     public function ptkp_stts_anak(): BelongsTo
     {
-        return $this->belongsTo(PtkpSttsAnak::class);
+        return $this->belongsTo(PtkpSttsAnak::class, 'kd_ptkp_status_anak');
     }
     public function perusahaan(): BelongsTo
     {
-        return $this->belongsTo(Perusahaan::class);
+        return $this->belongsTo(Perusahaan::class, 'kd_perusahaan');
     }
 }

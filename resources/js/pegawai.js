@@ -51,9 +51,10 @@ const tabelPegawai = $('#new-cons').DataTable({
             data: null,
             render: function (data) {
                 return `
+
                 <button type="button" class="btn btn-danger btn-sm btn-delete-pegawai" data-id="${data.id}"><i class="ti ti-trash"></i></button>
                 <button type="button" class="btn btn-warning btn-sm btn-edit-pegawai" data-id="${data.id}"><i class="ti ti-edit-circle" ></i></button>
-                <button type="button" class="btn btn-success btn-sm"><i class="ti ti-file-search"></i></button>
+                <button type="button" class="btn btn-success btn-sm btn-detail-pegawai" data-id="${data.id}"><i class="ti ti-file-search"></i></button>
                 `
             }
         }
@@ -430,7 +431,50 @@ document.getElementById('btn-update-pegawai').addEventListener('click', async fu
         btn.disabled = false;
     }
 });
+function dataDetailPegawai(data) {
+    const body = document.getElementById('body-detail-pegawai');
+    console.log(data)
+    body.innerHTML = `
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr><th>NRP</th><td>${data.nrp ?? '-'}</td></tr>
+                <tr><th>Nama</th><td>${data.nm_pegawai} ${data.nm_pegawai_tmb ?? ''}</td></tr>
+                <tr><th>Jenis Kelamin</th><td>${data.jk ?? '-'}</td></tr>
+                <tr><th>Usia</th><td>${data.usia ?? '-'}</td></tr>
+                <tr><th>Status Aktif</th><td>${data.pekerja_aktif ?? '-'}</td></tr>
+                <tr><th>Tanggal Lahir</th><td>${data.tgl_lahir ?? '-'}</td></tr>
+                <tr><th>Alamat</th><td>${data.alamat_utama ?? '-'}</td></tr>
 
+                <tr><th>Provinsi</th><td>${data.provinsi?.nm_provinsi ?? '-'}</td></tr>
+                <tr><th>Kabupaten</th><td>${data.kabupaten?.nm_kabupaten ?? '-'}</td></tr>
+                <tr><th>Kecamatan</th><td>${data.kecamatan?.nm_kecamatan ?? '-'}</td></tr>
+                <tr><th>Kelurahan</th><td>${data.kelurahan?.nm_kelurahan ?? '-'}</td></tr>
 
+                <tr><th>Bidang</th><td>${data.pegawai_bidang?.nm_bidang ?? '-'}</td></tr>
+                <tr><th>Posisi</th><td>${data.pegawai_posisi?.nm_posisi ?? '-'}</td></tr>
+                <tr><th>Perusahaan</th><td>${data.perusahaan?.nm_perusahaan ?? '-'}</td></tr>
 
+                <tr><th>Jenis Karyawan</th><td>${data.pegawai_jns_karyawan?.nm_jns_karyawan ?? '-'}</td></tr>
+                <tr><th>Jenis Pekerjaan</th><td>${data.pegawai_jns_pekerjaan?.nm_jns_pekerjaan ?? '-'}</td></tr>
+
+                <tr><th>Golongan</th><td>${data.pegawai_gol_pekerjaan?.nm_gol_pekerjaan ?? '-'}</td></tr>
+                <tr><th>Level</th><td>${data.pegawai_lvl?.nm_lvl ?? '-'}</td></tr>
+
+                <tr><th>PTKP</th><td>${data.ptkp_stts_anak?.nm_ptkp ?? '-'}</td></tr>
+            </tbody>
+        </table>
+    `
+}
+document.addEventListener('click', async function (e) {
+    const btn = e.target.closest('.btn-detail-pegawai');
+    if (!btn) return;
+    const modalEditgp = new bootstrap.Modal(document.getElementById('modal-detail-pegawai'));
+    modalEditgp.show();
+    const id = btn.getAttribute('data-id');
+     const response = await axios.get(`http://127.0.0.1:8000/api/detail_pegawai`);
+        const data = response.data;
+
+        renderDetailPegawai(data);
+   
+});
 

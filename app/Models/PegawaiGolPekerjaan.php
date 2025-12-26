@@ -20,6 +20,6 @@ class PegawaiGolPekerjaan extends Model
 
     public function pegawai(): HasMany
     {
-        return $this->hasMany(Pegawai::class, 'kd_gol_pekerjaan', 'kd_gol_pekerjaan');
+        return $this->hasMany(Pegawai::class, 'kd_gol_pekerjaan');
     }
 }

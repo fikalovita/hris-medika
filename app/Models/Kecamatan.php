@@ -18,17 +18,17 @@ class Kecamatan extends Model
     protected $primaryKey = 'kd_kecamatan';
     public $timestamps = false;
 
-    public function pegawai(): BelongsTo
+    public function pegawai(): HasMany
     {
-        return $this->belongsTo(Pegawai::class);
+        return $this->hasMany(Pegawai::class, 'kd_kecamatan');
     }
     public function kabupaten(): BelongsTo
     {
-        return $this->belongsTo(Kabupaten::class);
+        return $this->belongsTo(Kabupaten::class, 'kd_kabupaten');
     }
 
     public function kelurahan() : HasMany {
-        return $this->hasMany(Kelurahan::class, 'kd_kecamatan', 'kd_kecamatan');
+        return $this->hasMany(Kelurahan::class, 'kd_kecamatan');
     }
 
     
