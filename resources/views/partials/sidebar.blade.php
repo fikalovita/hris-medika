@@ -16,6 +16,13 @@
         </li>
 
         <li class="pc-item pc-hasmenu">
+          <a href="#!" class="pc-link"><span class="pc-micon"><i class="ti ti-menu"></i></span><span class="pc-mtext">Master Cuti</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+          <ul class="pc-submenu">
+            <li class="pc-item"><a class="pc-link" href="{{ route('bidang') }}">Saldo Cuti</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('perusahaan') }}">Kategori Cuti</a></li>
+          </ul>
+        </li>
+        <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link"><span class="pc-micon"><i class="ti ti-menu"></i></span><span class="pc-mtext">Master Data</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
           <ul class="pc-submenu">
             <li class="pc-item"><a class="pc-link" href="{{ route('bidang') }}">Bidang</a></li>
@@ -34,7 +41,7 @@
         <li class="pc-item">
           <a href="../elements/bc_typography.html" class="pc-link">
             <span class="pc-micon"><i class="ti ti-typography"></i></span>
-            <span class="pc-mtext">Typography</span>
+            <span class="pc-mtext">q</span>
           </a>
         </li>
         <li class="pc-item">

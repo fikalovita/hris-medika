@@ -444,19 +444,15 @@ function dataDetailPegawai(data) {
                 <tr><th>Status Aktif</th><td>${data.pekerja_aktif ?? '-'}</td></tr>
                 <tr><th>Tanggal Lahir</th><td>${data.tgl_lahir ?? '-'}</td></tr>
                 <tr><th>Alamat</th><td>${data.alamat_utama ?? '-'}</td></tr>
-
                 <tr><th>Provinsi</th><td>${data.provinsi?.nm_provinsi ?? '-'}</td></tr>
                 <tr><th>Kabupaten</th><td>${data.kabupaten?.nm_kabupaten ?? '-'}</td></tr>
                 <tr><th>Kecamatan</th><td>${data.kecamatan?.nm_kecamatan ?? '-'}</td></tr>
                 <tr><th>Kelurahan</th><td>${data.kelurahan?.nm_kelurahan ?? '-'}</td></tr>
-
                 <tr><th>Bidang</th><td>${data.pegawai_bidang?.nm_bidang ?? '-'}</td></tr>
                 <tr><th>Posisi</th><td>${data.pegawai_posisi?.nm_posisi ?? '-'}</td></tr>
                 <tr><th>Perusahaan</th><td>${data.perusahaan?.nm_perusahaan ?? '-'}</td></tr>
-
                 <tr><th>Jenis Karyawan</th><td>${data.pegawai_jns_karyawan?.nm_jns_karyawan ?? '-'}</td></tr>
                 <tr><th>Jenis Pekerjaan</th><td>${data.pegawai_jns_pekerjaan?.nm_jns_pekerjaan ?? '-'}</td></tr>
-
                 <tr><th>Golongan</th><td>${data.pegawai_gol_pekerjaan?.nm_gol_pekerjaan ?? '-'}</td></tr>
                 <tr><th>Level</th><td>${data.pegawai_lvl?.nm_lvl ?? '-'}</td></tr>
 
@@ -471,10 +467,12 @@ document.addEventListener('click', async function (e) {
     const modalEditgp = new bootstrap.Modal(document.getElementById('modal-detail-pegawai'));
     modalEditgp.show();
     const id = btn.getAttribute('data-id');
-     const response = await axios.get(`http://127.0.0.1:8000/api/detail_pegawai`);
+    const response = await axios.get(`http://127.0.0.1:8000/api/detail_pegawai`, {
+        params: {
+             id:id
+         }
+     });
         const data = response.data;
-
-        renderDetailPegawai(data);
+    dataDetailPegawai(data)
    
 });
-

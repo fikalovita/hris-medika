@@ -795,7 +795,7 @@
 
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4">  
                             <div class="form-group">
                                 <label class="form-label">BPJS Ket:</label>
                                 <input type="text" class="form-control edit-pegawai"
@@ -839,22 +839,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body" id="body-detail-pegawai">
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <th scope="row">NRP</th>
-                            <td>23124567</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Nama Depan</th>
-                            <td>23124567</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Nama Depan</th>
-                            <td>23124567</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

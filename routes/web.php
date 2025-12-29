@@ -38,3 +38,6 @@ Route::get('/ptkp_stts_anak', function () {
 Route::get('/perusahaan', function () {
     return view('perusahaan.app');
 })->name('perusahaan');
+Route::get('/auth', function () {
+    return view('auth.app');
+})->name('auth');
