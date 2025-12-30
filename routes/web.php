@@ -41,3 +41,6 @@ Route::get('/perusahaan', function () {
 Route::get('/auth', function () {
     return view('auth.app');
 })->name('auth');
+Route::get('/kategori_cuti', function () {
+    return view('kategori_cuti.app');
+})->name('kategori_cuti');

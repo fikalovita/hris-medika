@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\KategoriCuti;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class KategoriController extends Controller
 {
@@ -13,9 +14,8 @@ class KategoriController extends Controller
     public function index()
     {
         $dataKategori = KategoriCuti::all();
-        return response()->json($dataKategori);
+        return DataTables::of($dataKategori)->make(true);
     }
-
     /**
      * Store a newly created resource in stor
      * +.
@@ -70,8 +70,13 @@ class KategoriController extends Controller
     {
         $kd_kategori = $request->kd_kategori;
         $kategori = KategoriCuti::find($kd_kategori);
+        if (!$kategori) {
+            return response()->json(['message' => 'data tidak ditemukan'], 404);
+        }
+        if ($kategori->cuti_master()->count() > 0) {
+            return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
+        }
         $kategori->delete();
-
         return response()->json(['message' => 'Data berhasil dihapus'], 200);
     }
 }

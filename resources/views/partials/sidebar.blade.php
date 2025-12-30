@@ -18,8 +18,8 @@
         <li class="pc-item pc-hasmenu">
           <a href="#!" class="pc-link"><span class="pc-micon"><i class="ti ti-menu"></i></span><span class="pc-mtext">Master Cuti</span><span class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
           <ul class="pc-submenu">
-            <li class="pc-item"><a class="pc-link" href="{{ route('bidang') }}">Saldo Cuti</a></li>
-            <li class="pc-item"><a class="pc-link" href="{{ route('perusahaan') }}">Kategori Cuti</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('bidang') }}">Jenis Cuti</a></li>
+            <li class="pc-item"><a class="pc-link" href="{{ route('kategori_cuti') }}">Kategori Cuti</a></li>
           </ul>
         </li>
         <li class="pc-item pc-hasmenu">

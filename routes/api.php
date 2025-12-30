@@ -32,8 +32,8 @@ Route::get('/detail_pegawai', [PegawaiController::class, 'show']);
 //routes kategori
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::post('/add_kategori', [KategoriController::class, 'store']);
-Route::put('/detail_kategori', [KategoriController::class, 'show']);
-Route::post('/update_kategori', [KategoriController::class, 'update']);
+Route::get('/detail_kategori', [KategoriController::class, 'show']);
+Route::put('/update_kategori', [KategoriController::class, 'update']);
 Route::delete('/delete_kategori', [KategoriController::class, 'destroy']);
 
 //routes posisi
