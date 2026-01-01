@@ -93,7 +93,7 @@ class CutiMasterController extends Controller
         if (!$jenis_cuti) {
             return response()->json(['message' => 'data tidak ditemukan'], 404);
         }
-        if ($kategori->cuti_master()->count() > 0) {
+        if ($jenis_cuti->cuti_riwayat()->count() > 0) {
             return response()->json(['message' => 'data sudah dipakai pegawai'], 409);
         }
         $kategori->delete();

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\CutiMaster;
+use App\Models\CutiPersetujuan;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,5 +20,9 @@ class CutiRiwayat extends Model
 
     public function cuti_master(): HasMany {
         return $this->hasMany(CutiMaster::class, 'kd_jenis_cuti');
+    }
+    public function cuti_persetujuan(): HasMany
+    {
+        return $this->hasMany(CutiPersetujuan::class, 'kd_riwayat');
     }
 }
