@@ -44,3 +44,6 @@ Route::get('/auth', function () {
 Route::get('/kategori_cuti', function () {
     return view('kategori_cuti.app');
 })->name('kategori_cuti');
+Route::get('/user', function () {
+    return view('user.app');
+})->name('user');

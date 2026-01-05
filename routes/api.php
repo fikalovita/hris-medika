@@ -22,6 +22,8 @@ use App\Http\Controllers\PegawaiJnsKaryawanController;
 use App\Http\Controllers\PegawaiGolPekerjaanController;
 use App\Http\Controllers\PegawaiJnsPekerjaanController;
 use App\Http\Controllers\PegawaiKelGolPekerjaanController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 //routes Pegawai
 Route::get('/pegawai', [PegawaiController::class, 'index']);
@@ -111,3 +113,13 @@ Route::get('/provinsi', [ProvinsiController::class, 'index']);
 Route::get('/kabupaten/{provinsi}', [KabupatenController::class, 'index']);
 Route::get('/kecamatan/{kabupaten}', [KecamatanController::class, 'index']);
 Route::get('/kelurahan/{kecamatan}', [KelurahanController::class, 'index']);
+
+// route user
+Route::get('/user', [UserController::class, 'index']);
+Route::post('/add_user', [UserController::class, 'store']);
+Route::get('/detail_user', [UserController::class, 'show']);
+Route::get('/update_user', [UserController::class, 'update']);
+Route::delete('/delete_user', [UserController::class, 'destroy']);
+
+// route role
+Route::get('/role', [RoleController::class, 'index']);

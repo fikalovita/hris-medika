@@ -39,9 +39,9 @@
           </ul>
         </li>
         <li class="pc-item">
-          <a href="../elements/bc_typography.html" class="pc-link">
-            <span class="pc-micon"><i class="ti ti-typography"></i></span>
-            <span class="pc-mtext">q</span>
+          <a href="{{ route('user') }}" class="pc-link">
+            <span class="pc-micon"><i class="ti ti-user"></i></span>
+            <span class="pc-mtext">Akun</span>
           </a>
         </li>
         <li class="pc-item">
