@@ -116,6 +116,7 @@
                     <div class="mb-3">
                         <label for="nm_bidang" class="form-label">Email</label>
                         <input type="email" class="form-control edit-user" id="edit-user-email" name="email" placeholder="Email" data-key="email">
+                        <input type="hidden" class="form-control edit-user" id="edit-user-id" name="id" data-key="id">
                     </div>
                     <div class="mb-3">
                         <label for="nm_bidang" class="form-label">Password</label>

@@ -58,7 +58,7 @@ class UserController extends Controller
         $user = User::find($id_user);
         $validate = $request->validate([
             'name' => 'required',
-            'email' => 'required|unique:users,email',
+            'email' => 'required',
             'password' => 'required',
             'role_id' => 'required',
         ]);
@@ -69,6 +69,8 @@ class UserController extends Controller
             'password' => $validate['password'],
             'role_id' => $validate['role_id']
         ]);
+
+        return response()->json(['message' => 'data berhasil diubah']);
     }
 
     /**

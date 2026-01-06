@@ -6,6 +6,9 @@ use App\Models\KelompokUmur;
 use Illuminate\Http\Request;
 use App\Models\PegawaiJnsKaryawan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BidangController;
 use App\Http\Controllers\PosisiController;
 use App\Http\Controllers\PegawaiController;
@@ -13,113 +16,118 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProvinsiController;
 use App\Http\Controllers\KabupatenController;
 use App\Http\Controllers\KecamatanController;
+use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\PegawaiLvlController;
 use App\Http\Controllers\PerusahaanController;
 use App\Http\Controllers\KelompokUmurController;
-use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\PtkpSttsAnakController;
 use App\Http\Controllers\PegawaiJnsKaryawanController;
 use App\Http\Controllers\PegawaiGolPekerjaanController;
 use App\Http\Controllers\PegawaiJnsPekerjaanController;
 use App\Http\Controllers\PegawaiKelGolPekerjaanController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController;
 
-//routes Pegawai
-Route::get('/pegawai', [PegawaiController::class, 'index']);
-Route::post('/add_pegawai', [PegawaiController::class, 'store']);
-Route::put('/update_pegawai', [PegawaiController::class, 'update']);
-Route::delete('/delete_pegawai', [PegawaiController::class, 'destroy']);
-Route::get('/detail_pegawai', [PegawaiController::class, 'show']);
-//routes kategori
-Route::get('/kategori', [KategoriController::class, 'index']);
-Route::post('/add_kategori', [KategoriController::class, 'store']);
-Route::get('/detail_kategori', [KategoriController::class, 'show']);
-Route::put('/update_kategori', [KategoriController::class, 'update']);
-Route::delete('/delete_kategori', [KategoriController::class, 'destroy']);
 
-//routes posisi
-Route::get('/posisi', [PosisiController::class, 'index']);
-Route::post('/add_posisi', [PosisiController::class, 'store']);
-Route::get('/detail_posisi', [PosisiController::class, 'show']);
-Route::put('/update_posisi', [PosisiController::class, 'update']);
-Route::delete('/delete_posisi', [PosisiController::class, 'destroy']);
 
-//routes bidang
-Route::get('/bidang', [BidangController::class, 'index']);
-Route::post('/add_bidang', [BidangController::class, 'store']);
-Route::get('/detail_bidang', [BidangController::class, 'show']);
-Route::put('/update_bidang', [BidangController::class, 'update']);
-Route::delete('/delete_bidang', [BidangController::class, 'destroy']);
+Route::middleware(['auth:sanctum', 'auth'])->group(function () {
+    //routes Pegawai
+    Route::get('/pegawai', [PegawaiController::class, 'index']);
+    Route::post('/add_pegawai', [PegawaiController::class, 'store']);
+    Route::put('/update_pegawai', [PegawaiController::class, 'update']);
+    Route::delete('/delete_pegawai', [PegawaiController::class, 'destroy']);
+    Route::get('/detail_pegawai', [PegawaiController::class, 'show']);
+    //routes kategori
+    Route::get('/kategori', [KategoriController::class, 'index']);
+    Route::post('/add_kategori', [KategoriController::class, 'store']);
+    Route::get('/detail_kategori', [KategoriController::class, 'show']);
+    Route::put('/update_kategori', [KategoriController::class, 'update']);
+    Route::delete('/delete_kategori', [KategoriController::class, 'destroy']);
 
-//routes perusahaan
-Route::get('/perusahaan', [PerusahaanController::class, 'index']);
-Route::post('/add_perusahaan', [PerusahaanController::class, 'store']);
-Route::get('/detail_perusahaan', [PerusahaanController::class, 'show']);
-Route::put('/update_perusahaan', [PerusahaanController::class, 'update']);
-Route::delete('/delete_perusahaan', [PerusahaanController::class, 'destroy']);
+    //routes posisi
+    Route::get('/posisi', [PosisiController::class, 'index']);
+    Route::post('/add_posisi', [PosisiController::class, 'store']);
+    Route::get('/detail_posisi', [PosisiController::class, 'show']);
+    Route::put('/update_posisi', [PosisiController::class, 'update']);
+    Route::delete('/delete_posisi', [PosisiController::class, 'destroy']);
 
-//routes kelompok umur
-Route::get('/kelompok_umur', [KelompokUmurController::class, 'index']);
-Route::post('/add_kelompok_umur', [KelompokUmurController::class, 'store']);
-Route::get('/detail_kelompok_umur', [KelompokUmurController::class, 'show']);
-Route::put('/update_kelompok_umur', [KelompokUmurController::class, 'update']);
-Route::delete('/delete_kelompok_umur', [KelompokUmurController::class, 'destroy']);
+    //routes bidang
+    Route::get('/bidang', [BidangController::class, 'index']);
+    Route::post('/add_bidang', [BidangController::class, 'store']);
+    Route::get('/detail_bidang', [BidangController::class, 'show']);
+    Route::put('/update_bidang', [BidangController::class, 'update']);
+    Route::delete('/delete_bidang', [BidangController::class, 'destroy']);
 
-//routes pegawaiLvl
-Route::get('/pegawai_lvl', [PegawaiLvlController::class, 'index']);
-Route::post('/add_pegawai_lvl', [PegawaiLvlController::class, 'store']);
-Route::get('/detail_pegawai_lvl', [PegawaiLvlController::class, 'show']);
-Route::put('/update_pegawai_lvl', [PegawaiLvlController::class, 'update']);
-Route::delete('/delete_pegawai_lvl', [PegawaiLvlController::class, 'destroy']);
+    //routes perusahaan
+    Route::get('/perusahaan', [PerusahaanController::class, 'index']);
+    Route::post('/add_perusahaan', [PerusahaanController::class, 'store']);
+    Route::get('/detail_perusahaan', [PerusahaanController::class, 'show']);
+    Route::put('/update_perusahaan', [PerusahaanController::class, 'update']);
+    Route::delete('/delete_perusahaan', [PerusahaanController::class, 'destroy']);
 
-//routes Pegawai jns karyawan
-Route::get('/pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'index']);
-Route::post('/add_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'store']);
-Route::get('/detail_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'show']);
-Route::put('/update_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'update']);
-Route::delete('/delete_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'destroy']);
+    //routes kelompok umur
+    Route::get('/kelompok_umur', [KelompokUmurController::class, 'index']);
+    Route::post('/add_kelompok_umur', [KelompokUmurController::class, 'store']);
+    Route::get('/detail_kelompok_umur', [KelompokUmurController::class, 'show']);
+    Route::put('/update_kelompok_umur', [KelompokUmurController::class, 'update']);
+    Route::delete('/delete_kelompok_umur', [KelompokUmurController::class, 'destroy']);
 
-//routes Pegawai jns pekerjaan
-Route::get('/pegawai_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'index']);
-Route::post('/add_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'store']);
-Route::get('/detail_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'show']);
-Route::put('/update_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'update']);
-Route::delete('/delete_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'destroy']);
+    //routes pegawaiLvl
+    Route::get('/pegawai_lvl', [PegawaiLvlController::class, 'index']);
+    Route::post('/add_pegawai_lvl', [PegawaiLvlController::class, 'store']);
+    Route::get('/detail_pegawai_lvl', [PegawaiLvlController::class, 'show']);
+    Route::put('/update_pegawai_lvl', [PegawaiLvlController::class, 'update']);
+    Route::delete('/delete_pegawai_lvl', [PegawaiLvlController::class, 'destroy']);
 
-//routes PTKP Status Anak
-Route::get('/ptkp_stts_anak', [PtkpSttsAnakController::class, 'index']);
-Route::post('/add_ptkp_stts_anak', [PtkpSttsAnakController::class, 'store']);
-Route::get('/detail_ptkp_stts_anak', [PtkpSttsAnakController::class, 'show']);
-Route::put('/update_ptkp_stts_anak', [PtkpSttsAnakController::class, 'update']);
-Route::delete('/delete_ptkp_stts_anak', [PtkpSttsAnakController::class, 'destroy']);
+    //routes Pegawai jns karyawan
+    Route::get('/pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'index']);
+    Route::post('/add_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'store']);
+    Route::get('/detail_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'show']);
+    Route::put('/update_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'update']);
+    Route::delete('/delete_pegawai_jns_karyawan', [PegawaiJnsKaryawanController::class, 'destroy']);
 
-//routes pegawai Gol Pekerjaan
-Route::get('/pegawai_gol_pekerjaan', [PegawaiGolPekerjaanController::class, 'index']);
-Route::post('/add_pegawai_gol_pekerjaan ', [PegawaiGolPekerjaanController::class, 'store']);
-Route::get('/detail_pegawai_gol_pekerjaan', [PegawaiGolPekerjaanController::class, 'show']);
-Route::put('/update_pegawai_gol_pekerjaan', [PegawaiGolPekerjaanController::class, 'update']);
-Route::delete('/delete_pegawai_gol_pekerjaan', [PegawaiGolPekerjaanController::class, 'destroy']);
+    //routes Pegawai jns pekerjaan
+    Route::get('/pegawai_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'index']);
+    Route::post('/add_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'store']);
+    Route::get('/detail_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'show']);
+    Route::put('/update_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'update']);
+    Route::delete('/delete_jns_pekerjaan', [PegawaiJnsPekerjaanController::class, 'destroy']);
 
-//routes pegawai kelompok Gol Pekerjaan
-Route::get('/pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'index']);
-Route::post('/add_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'store']);
-Route::get('/detail_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'show']);
-Route::put('/update_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'update']);
-Route::delete('/delete_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'destroy']);
+    //routes PTKP Status Anak
+    Route::get('/ptkp_stts_anak', [PtkpSttsAnakController::class, 'index']);
+    Route::post('/add_ptkp_stts_anak', [PtkpSttsAnakController::class, 'store']);
+    Route::get('/detail_ptkp_stts_anak', [PtkpSttsAnakController::class, 'show']);
+    Route::put('/update_ptkp_stts_anak', [PtkpSttsAnakController::class, 'update']);
+    Route::delete('/delete_ptkp_stts_anak', [PtkpSttsAnakController::class, 'destroy']);
 
-// route provinsi
-Route::get('/provinsi', [ProvinsiController::class, 'index']);
-Route::get('/kabupaten/{provinsi}', [KabupatenController::class, 'index']);
-Route::get('/kecamatan/{kabupaten}', [KecamatanController::class, 'index']);
-Route::get('/kelurahan/{kecamatan}', [KelurahanController::class, 'index']);
+    //routes pegawai Gol Pekerjaan
+    Route::get('/pegawai_gol_pekerjaan', [PegawaiGolPekerjaanController::class, 'index']);
+    Route::post('/add_pegawai_gol_pekerjaan ', [PegawaiGolPekerjaanController::class, 'store']);
+    Route::get('/detail_pegawai_gol_pekerjaan', [PegawaiGolPekerjaanController::class, 'show']);
+    Route::put('/update_pegawai_gol_pekerjaan', [PegawaiGolPekerjaanController::class, 'update']);
+    Route::delete('/delete_pegawai_gol_pekerjaan', [PegawaiGolPekerjaanController::class, 'destroy']);
 
-// route user
-Route::get('/user', [UserController::class, 'index']);
-Route::post('/add_user', [UserController::class, 'store']);
-Route::get('/detail_user', [UserController::class, 'show']);
-Route::get('/update_user', [UserController::class, 'update']);
-Route::delete('/delete_user', [UserController::class, 'destroy']);
+    //routes pegawai kelompok Gol Pekerjaan
+    Route::get('/pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'index']);
+    Route::post('/add_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'store']);
+    Route::get('/detail_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'show']);
+    Route::put('/update_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'update']);
+    Route::delete('/delete_pegawai_kel_gol_pekerjaan', [PegawaiKelGolPekerjaanController::class, 'destroy']);
 
-// route role
-Route::get('/role', [RoleController::class, 'index']);
+    // route provinsi
+    Route::get('/provinsi', [ProvinsiController::class, 'index']);
+    Route::get('/kabupaten/{provinsi}', [KabupatenController::class, 'index']);
+    Route::get('/kecamatan/{kabupaten}', [KecamatanController::class, 'index']);
+    Route::get('/kelurahan/{kecamatan}', [KelurahanController::class, 'index']);
+
+    // route user
+    Route::get('/user', [UserController::class, 'index']);
+    Route::post('/add_user', [UserController::class, 'store']);
+    Route::get('/detail_user', [UserController::class, 'show']);
+    Route::put('/update_user', [UserController::class, 'update']);
+    Route::delete('/delete_user', [UserController::class, 'destroy']);
+
+    // route role
+    Route::get('/role', [RoleController::class, 'index']);
+});
+
+Route::post('/login', [AuthController::class, 'auth']);
+Route::post('/logout', [AuthController::class, 'logOut'])->middleware('auth:sanctum');

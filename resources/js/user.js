@@ -147,13 +147,41 @@ document.addEventListener('click', function (e) {
         }
     });
 });
+axios.get('http://127.0.0.1:8000/api/role')
+    .then(function (response) {
+        console.log(response.data)
+        console.log(response.data)
+        const select = document.getElementById('edit-role-id');
+        const data = response.data;
 
+        data.forEach(function (item) {
+            const option = document.createElement('option');
+            option.value = item.id_role;
+            option.text = item.nama_role;
+            select.appendChild(option);
+        });
+    })
+    axios.get('http://127.0.0.1:8000/api/pegawai')
+    .then(function (response) {
+        console.log(response.data.data)
+        const select = document.getElementById('edit-name-user');
+        const data = response.data.data;
+
+        data.forEach(function (item) {
+            const option = document.createElement('option');
+            option.value = item.nrp;
+            option.text = item.nm_pegawai + ' ' + item.nm_pegawai_tmb;
+            select.appendChild(option);
+        });
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
 document.addEventListener('click', function (e) {
     const btn = e.target.closest('.btn-edit-user');
     if (!btn) return;
     const modalEditBidang = new bootstrap.Modal(document.getElementById('modal-edit-user'));
     modalEditBidang.show();
-    const id_user = btn.getAttribute('data-id');
     const id_user = btn.getAttribute('data-id');
     axios.get('http://127.0.0.1:8000/api/detail_user', {
         params: {
@@ -161,7 +189,7 @@ document.addEventListener('click', function (e) {
         }
     }).then(response => {
         const data = response.data;
-        document.querySelectorAll('.edit-user').forEach(field => {
+        document.querySelectorAll('.edit-user').forEach(field => { 
             const key = field.dataset.key;
 
             if (data[key] !== undefined) {
@@ -170,10 +198,14 @@ document.addEventListener('click', function (e) {
         });
     })
 });
-document.getElementById('btn-update-role').addEventListener('click', function () {
+document.getElementById('btn-update-user').addEventListener('click', function () {
     axios.put('http://127.0.0.1:8000/api/update_user', {
-        kd_lvl: document.getElementById('edit-kode-role').value,
-        nm_lvl: document.getElementById('edit-nama-role').value
+        id: document.getElementById('edit-user-id').value,
+        name: document.getElementById('edit-name-user').value,
+        email: document.getElementById('edit-user-email').value,
+        password: document.getElementById('edit-user-password').value,
+        role_id: document.getElementById('edit-role-id').value,
+        
     }, {
         headers: {
             'Accept': 'application/json',
@@ -187,7 +219,7 @@ document.getElementById('btn-update-role').addEventListener('click', function ()
             showConfirmButton: false,
             timer: 1500
         });
-        tabelRole.ajax.reload();
+        tabelUser.ajax.reload();
     }).catch(error => {
         Swal.fire({
             icon: "error",

@@ -15,21 +15,11 @@ class AuthMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-            $request->validate([
-                'email' => 'required|email',
-                'password' => 'required',
-                'device_name' => 'required',
-            ]);
+        $user = $request->user();
 
-            $user = User::where('email', $request->email)->first();
-
-            if (! $user || ! Hash::check($request->password, $user->password)) {
-                throw ValidationException::withMessages([
-                    'email' => ['The provided credentials are incorrect.'],
-                ]);
-            }
-
-            return $user->createToken($request->device_name)->plainTextToken;
+        if ($user->role_id != "1") {
+            return response()->json(['message' => 'Forbidden.'], 403);
+        }
             return $next($request);
         }
 }
