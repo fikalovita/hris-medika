@@ -28,7 +28,7 @@ use App\Http\Controllers\PegawaiKelGolPekerjaanController;
 
 
 
-Route::middleware(['auth:sanctum', 'auth'])->group(function () {
+Route::middleware(['auth:sanctum', 'login'])->group(function () {
     //routes Pegawai
     Route::get('/pegawai', [PegawaiController::class, 'index']);
     Route::post('/add_pegawai', [PegawaiController::class, 'store']);
@@ -131,3 +131,7 @@ Route::middleware(['auth:sanctum', 'auth'])->group(function () {
 
 Route::post('/login', [AuthController::class, 'auth']);
 Route::post('/logout', [AuthController::class, 'logOut'])->middleware('auth:sanctum');
+
+Route::middleware('auth:sanctum')->get('/me', function (Request $request) {
+    return $request->user();
+});

@@ -71,7 +71,7 @@
                 <form>
                     <div class="form-group">
                         <label class="form-label">Nama</label>
-                        <select id="name-user" class="form-control form-select" name="name">
+                        <select id="name-user" class="form-control form-select" name="nrp">
                         </select>
                     </div>
                     <div class="mb-3">
@@ -110,13 +110,16 @@
                 <form>
                     <div class="form-group">
                         <label class="form-label">Nama</label>
-                        <select id="edit-name-user" class="form-control form-select edit-user" name="name" data-key="name">
+                        <select id="edit-name-user" class="form-control form-select edit-user" name="nrp"
+                            data-key="name">
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="nm_bidang" class="form-label">Email</label>
-                        <input type="email" class="form-control edit-user" id="edit-user-email" name="email" placeholder="Email" data-key="email">
-                        <input type="hidden" class="form-control edit-user" id="edit-user-id" name="id" data-key="id">
+                        <input type="email" class="form-control edit-user" id="edit-user-email" name="email"
+                            placeholder="Email" data-key="email">
+                        <input type="hidden" class="form-control edit-user" id="edit-user-id" name="id"
+                            data-key="id">
                     </div>
                     <div class="mb-3">
                         <label for="nm_bidang" class="form-label">Password</label>
@@ -125,7 +128,8 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Role</label>
-                        <select id="edit-role-id" class="form-control form-select edit-user" name="role_id" data-key="role_id">
+                        <select id="edit-role-id" class="form-control form-select edit-user" name="role_id"
+                            data-key="role_id">
                         </select>
                     </div>
                 </form>

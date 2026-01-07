@@ -33,3 +33,5 @@
 <script>layout_rtl_change('false');</script>
 <script>preset_change("preset-1");</script>
 <script>font_change("Public-Sans");</script>
+
+@vite('resources/js/layout.js')

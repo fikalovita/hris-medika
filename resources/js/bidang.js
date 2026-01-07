@@ -1,6 +1,8 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
+const user = JSON.parse(localStorage.getItem('user'));
+const token = JSON.parse(localStorage.getItem('token'));
 //bidang trigger
 document.getElementById("btn-modal-bidang").addEventListener("click", function (e) {
     e.preventDefault();
@@ -17,6 +19,11 @@ const tabelBidang = $('#tabel-bidang').DataTable({
     ajax: {
         type: 'get',
         url: 'http://127.0.0.1:8000/api/bidang',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
     },
     processing: true,
     serverSide: true,
@@ -46,7 +53,8 @@ document.getElementById('submit-bidang').addEventListener('click', function (e) 
             }, {
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
                 }
             }
         )
@@ -86,6 +94,11 @@ document.addEventListener('click', function (e) {
             axios.delete('http://127.0.0.1:8000/api/delete_bidang', {
                     params: {
                         kd_bidang: kd_bidang
+                    },
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
                     }
                 })
                 .then(response => {
@@ -118,6 +131,11 @@ document.addEventListener('click', function (e) {
     axios.get('http://127.0.0.1:8000/api/detail_bidang', {
         params: {
             kd_bidang: kd_bidang
+        },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         const data = response.data;
@@ -137,7 +155,8 @@ document.getElementById('btn-update-bidang').addEventListener('click', function 
     }, {
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         Swal.fire({

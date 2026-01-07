@@ -2,9 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/dashboard', function () {
+    return view('dashboard.app');
+})->name('dashboard');
 Route::get('/pegawai', function () {
     return view('pegawai.app');
 })->name('pegawai');
@@ -14,9 +14,9 @@ Route::get('/bidang', function () {
 Route::get('/posisi', function () {
     return view('posisi.app');
 })->name('posisi');
-Route::get('/role', function () {
-    return view('role.app');
-})->name('role');
+Route::get('/pegawai_lvl', function () {
+    return view('pegawai_lvl.app');
+})->name('pegawai_lvl');
 Route::get('/kelompok_umur', function () {
     return view('kelompok_umur.app');
 })->name('kelompok_umur');

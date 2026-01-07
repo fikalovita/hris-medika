@@ -1,14 +1,15 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
-
+const user = JSON.parse(localStorage.getItem('user'));
+const token = JSON.parse(localStorage.getItem('token'));
 //bidang trigger
 document.getElementById("btn-modal-perusahaan").addEventListener("click", function (e) {
     // e.preventDefault();
     const modalperusahaan = new bootstrap.Modal(document.getElementById('modal-perusahaan'));
     modalperusahaan.show();
 });
-const tabelperusahaan= $('#tabel-perusahaan').DataTable({
+const tabelperusahaan = $('#tabel-perusahaan').DataTable({
     responsive: {
         // details: {
         //     display: $.fn.dataTable.Responsive.display.childRowImmediate,
@@ -18,6 +19,11 @@ const tabelperusahaan= $('#tabel-perusahaan').DataTable({
     ajax: {
         type: 'get',
         url: 'http://127.0.0.1:8000/api/perusahaan',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
     },
     processing: true,
     serverSide: true,
@@ -46,7 +52,8 @@ document.getElementById('submit-perusahaan').addEventListener('click', function 
             }, {
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
                 }
             }
         )
@@ -85,6 +92,11 @@ document.addEventListener('click', function (e) {
             axios.delete('http://127.0.0.1:8000/api/delete_perusahaan', {
                     params: {
                         kd_perusahaan: kd_perusahaan
+                    },
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
                     }
                 })
                 .then(response => {
@@ -117,6 +129,11 @@ document.addEventListener('click', function (e) {
     axios.get('http://127.0.0.1:8000/api/detail_perusahaan', {
         params: {
             kd_perusahaan: kd_perusahaan
+        },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         const data = response.data;
@@ -136,7 +153,8 @@ document.getElementById('btn-update-perusahaan').addEventListener('click', funct
     }, {
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         Swal.fire({

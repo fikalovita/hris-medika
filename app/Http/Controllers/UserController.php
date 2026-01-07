@@ -32,7 +32,7 @@ class UserController extends Controller
 
         User::create([
             'id'=> Str::uuid(),
-            'name'=>$validate['name'],
+            'nrp' => $validate['name'],
             'email'=>$validate['email'],
             'password'=>$validate['password'],
             'role_id'=>$validate['role_id']

@@ -3,8 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Pegawai;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,7 +26,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'id',
-        'name',
+        'nrp',
         'email',
         'password',
         'role_id',
@@ -55,5 +57,10 @@ class User extends Authenticatable
     public function role_user(): BelongsTo
     {
         return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function pegawai(): HasOne
+    {
+        return $this->hasOne(Pegawai::class, 'nrp','nrp');
     }
 }

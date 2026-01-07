@@ -18,17 +18,28 @@ class AuthController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        $user = User::where('email', $request->email)->first();
+        $user = User::with(['pegawai:nrp,nm_pegawai,nm_pegawai_tmb,kd_manager'])->where('email', $request->email)->first();
         if (!$user || ! Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'email' => ['username atau password salah'],
             ]);
         }
         $token = $user->createToken('token-login')->plainTextToken;
-        return response()->json(['data' => $user, 'token' => $token]);
+        $pegawai = $user->pegawai;
+        $dataPegawai = $pegawai ? [
+            'nm_pegawai' => $pegawai->nm_pegawai,
+            'nm_pegawai_tmb' => $pegawai->nm_pegawai_tmb,
+            'kd_manager' => $pegawai->kd_manager
+        ] : null;
+        return response()->json([
+            'data' => $user,
+            'pegawai' => $dataPegawai,
+            'token' => $token
+        ]);
     }
 
-    public function logOut()  {
+    public function logOut(Request $request)
+    {
         $request->user()->currentAccessToken()->delete();
         return response()->json(['message' => 'Anda berhasil logout']);
     }

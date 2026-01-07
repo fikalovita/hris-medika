@@ -1,14 +1,15 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
-
+const user = JSON.parse(localStorage.getItem('user'));
+const token = JSON.parse(localStorage.getItem('token'));
 //bidang trigger
 document.getElementById("btn-modal-gp").addEventListener("click", function (e) {
     e.preventDefault();
     const modalgp = new bootstrap.Modal(document.getElementById('modal-gp'));
     modalgp.show();
 });
-const tabelgp= $('#tabel-gp').DataTable({
+const tabelgp = $('#tabel-gp').DataTable({
     responsive: {
         // details: {
         //     display: $.fn.dataTable.Responsive.display.childRowImmediate,
@@ -18,6 +19,11 @@ const tabelgp= $('#tabel-gp').DataTable({
     ajax: {
         type: 'get',
         url: 'http://127.0.0.1:8000/api/pegawai_gol_pekerjaan',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
     },
     processing: true,
     serverSide: true,
@@ -47,7 +53,8 @@ document.getElementById('submit-gp').addEventListener('click', function (e) {
             }, {
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
                 }
             }
         )
@@ -86,6 +93,11 @@ document.addEventListener('click', function (e) {
             axios.delete('http://127.0.0.1:8000/api/delete_pegawai_gol_pekerjaan', {
                     params: {
                         kd_gol_pekerjaan: kd_gol_pekerjaan
+                    },
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
                     }
                 })
                 .then(response => {
@@ -118,6 +130,11 @@ document.addEventListener('click', function (e) {
     axios.get('http://127.0.0.1:8000/api/detail_pegawai_gol_pekerjaan', {
         params: {
             kd_gol_pekerjaan: kd_gol_pekerjaan
+        },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         const data = response.data;
@@ -137,7 +154,8 @@ document.getElementById('btn-update-gp').addEventListener('click', function () {
     }, {
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         Swal.fire({

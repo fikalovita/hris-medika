@@ -32,14 +32,14 @@
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Email Address</label>
-                            <input type="email" class="form-control" placeholder="Email Address">
+                            <input type="email" class="form-control" placeholder="Email Address" id="email" name="email">
                         </div>
                         <div class="form-group mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control" placeholder="Password">
+                            <input type="password" class="form-control" placeholder="Password" id="password" name="password">
                         </div>
                         <div class="d-grid mt-4">
-                            <button type="button" class="btn btn-primary">Login</button>
+                            <button type="button" class="btn btn-primary" id="btn-login">Login</button>
                         </div>
                     </div>
                 </div>
@@ -73,8 +73,13 @@
   <script src="../assets/js/fonts/custom-font.js"></script>
   <script src="../assets/js/pcoded.js"></script>
   <script src="../assets/js/plugins/feather.min.js"></script>
-
-
+@vite('resources/js/auth.js')
+<script>
+ const token = JSON.parse(localStorage.getItem('token')); ;
+if (token) {
+    window.location.replace('/dashboard');
+} 
+</script>
 
 
 

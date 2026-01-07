@@ -1,14 +1,15 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
-
+const user = JSON.parse(localStorage.getItem('user'));
+const token = JSON.parse(localStorage.getItem('token'));
 //bidang trigger
 document.getElementById("btn-modal-ptkp").addEventListener("click", function (e) {
     e.preventDefault();
     const modalptkp = new bootstrap.Modal(document.getElementById('modal-ptkp'));
     modalptkp.show();
 });
-const tabelptkp= $('#tabel-ptkp').DataTable({
+const tabelptkp = $('#tabel-ptkp').DataTable({
     responsive: {
         // details: {
         //     display: $.fn.dataTable.Responsive.display.childRowImmediate,
@@ -18,6 +19,11 @@ const tabelptkp= $('#tabel-ptkp').DataTable({
     ajax: {
         type: 'get',
         url: 'http://127.0.0.1:8000/api/ptkp_stts_anak',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
     },
     processing: true,
     serverSide: true,
@@ -47,7 +53,8 @@ document.getElementById('submit-ptkp').addEventListener('click', function (e) {
             }, {
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
                 }
             }
         )
@@ -118,6 +125,11 @@ document.addEventListener('click', function (e) {
     axios.get('http://127.0.0.1:8000/api/detail_ptkp_stts_anak', {
         params: {
             kd_ptkp: kd_ptkp
+        },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         const data = response.data;
@@ -137,7 +149,8 @@ document.getElementById('btn-update-ptkp').addEventListener('click', function ()
     }, {
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         Swal.fire({

@@ -2,6 +2,9 @@ import Swal from 'sweetalert2';
 import 'sweetalert2/dist/sweetalert2.css';
 import axios from 'axios';
 window.Swal = Swal;
+
+const user = JSON.parse(localStorage.getItem('user'));
+const token = JSON.parse(localStorage.getItem('token'));
 // url untuk get data option dari database
 const urlKelompokUmur = 'http://127.0.0.1:8000/api/kelompok_umur';
 const urlBidang = 'http://127.0.0.1:8000/api/bidang';
@@ -29,6 +32,11 @@ const tabelPegawai = $('#new-cons').DataTable({
     ajax: {
         type: 'get',
         url: 'http://127.0.0.1:8000/api/pegawai',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'multipart/form-data',
+            'Authorization': 'Bearer ' + token
+        }
     },
     processing: true,
     serverSide: true,
@@ -69,6 +77,7 @@ document.getElementById('submit-pegawai').addEventListener('click', function (e)
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'multipart/form-data',
+            'Authorization': 'Bearer ' + token
         }
     }).then(function (response) {
         Swal.fire({
@@ -106,6 +115,10 @@ document.addEventListener('click', function (e) {
             axios.delete('http://127.0.0.1:8000/api/delete_pegawai', {
                     params: {
                         id: id
+                    },
+                    headers: {
+                        Accept: 'application/json',
+                        Authorization: 'Bearer ' + token
                     }
                 })
                 .then(response => {
@@ -138,7 +151,13 @@ async function loadOptions(selectId, url, selectedValue = '', keyValue = 'value'
             return;
         }
 
-        const res = await axios.get(url);
+        const res = await axios.get(url, {
+             headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        });
         const data = res.data.data
 
         select.innerHTML = `<option value="">-- Pilih --</option>`;
@@ -224,6 +243,11 @@ document.addEventListener('click', function (e) {
     axios.get('http://127.0.0.1:8000/api/detail_pegawai', {
             params: {
                 id
+        },
+         headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
             }
         })
         .then(async response => {
@@ -313,7 +337,7 @@ document.addEventListener('click', function (e) {
                     'nrp',
                     'nm_pegawai'
                 ),
-                
+
             ])
 
             await loadOptions(
@@ -322,7 +346,7 @@ document.addEventListener('click', function (e) {
                 data.kd_kabupaten,
                 'kd_kabupaten',
                 'nm_kabupaten'
-                    
+
             )
             await loadOptions(
                 'edit-kecamatan',
@@ -330,7 +354,7 @@ document.addEventListener('click', function (e) {
                 data.kd_kecamatan,
                 'kd_kecamatan',
                 'nm_kecamatan'
-                    
+
             )
             await loadOptions(
                 'edit-kelurahan',
@@ -338,7 +362,7 @@ document.addEventListener('click', function (e) {
                 data.kd_kelurahan,
                 'kd_kelurahan',
                 'nm_kelurahan'
-                    
+
             )
 
             return data;
@@ -356,7 +380,7 @@ document.addEventListener('click', function (e) {
 });
 let currentEditId = null;
 
-document.addEventListener('click', async function(e) {
+document.addEventListener('click', async function (e) {
     const btn = e.target.closest('.btn-edit-pegawai');
     if (!btn) return;
 
@@ -367,8 +391,19 @@ document.addEventListener('click', async function(e) {
     modal.show();
 
     // Ambil data pegawai
-    const { data } = await axios.get('http://127.0.0.1:8000/api/detail_pegawai', { params: { id } });
-    
+    const {
+        data
+    } = await axios.get('http://127.0.0.1:8000/api/detail_pegawai', {
+        params: {
+            id
+        },
+         headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    });
+
     // isi form
     document.querySelectorAll('.edit-pegawai').forEach(field => {
         const key = field.dataset.key;
@@ -404,7 +439,11 @@ document.getElementById('btn-update-pegawai').addEventListener('click', async fu
     btn.disabled = true;
     try {
         const response = await axios.put('http://127.0.0.1:8000/api/update_pegawai', data, {
-            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'multipart/form-data',
+                'Authorization': 'Bearer ' + token
+            }
         });
 
         Swal.fire({
@@ -420,17 +459,22 @@ document.getElementById('btn-update-pegawai').addEventListener('click', async fu
 
     } catch (error) {
         let message = 'Terjadi kesalahan';
-        if (error.response?.data?.errors) {
+        if (error.response ?.data ?.errors) {
             message = Object.values(error.response.data.errors).flat().join('\n');
-        } else if (error.response?.data?.message) {
+        } else if (error.response ?.data ?.message) {
             message = error.response.data.message;
         }
 
-        Swal.fire({ icon: 'error', title: 'Oops...', text: message });
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: message
+        });
     } finally {
         btn.disabled = false;
     }
 });
+
 function dataDetailPegawai(data) {
     const body = document.getElementById('body-detail-pegawai');
     console.log(data)
@@ -469,10 +513,15 @@ document.addEventListener('click', async function (e) {
     const id = btn.getAttribute('data-id');
     const response = await axios.get(`http://127.0.0.1:8000/api/detail_pegawai`, {
         params: {
-             id:id
-         }
-     });
-        const data = response.data;
+            id: id
+        },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    });
+    const data = response.data;
     dataDetailPegawai(data)
-   
+
 });

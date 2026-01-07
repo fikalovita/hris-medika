@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
-
+const user = JSON.parse(localStorage.getItem('user'));
+const token = JSON.parse(localStorage.getItem('token'));
 //bidang trigger
 document.getElementById("btn-modal-user").addEventListener("click", function (e) {
     e.preventDefault();
@@ -17,7 +18,12 @@ const tabelUser = $('#tabel-user').DataTable({
     ajax: {
         type: 'get',
         url: 'http://127.0.0.1:8000/api/user',
-    },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    },  
     processing: true,
     serverSide: true,
     columns: [{
@@ -40,7 +46,13 @@ const tabelUser = $('#tabel-user').DataTable({
         },
     ],
 });
-axios.get('http://127.0.0.1:8000/api/role')
+axios.get('http://127.0.0.1:8000/api/role', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    })
     .then(function (response) {
         console.log(response.data)
         console.log(response.data)
@@ -57,7 +69,13 @@ axios.get('http://127.0.0.1:8000/api/role')
     .catch(function (error) {
         console.log(error);
     });
-axios.get('http://127.0.0.1:8000/api/pegawai')
+axios.get('http://127.0.0.1:8000/api/pegawai', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    })
     .then(function (response) {
         console.log(response.data.data)
         const select = document.getElementById('name-user');
@@ -78,14 +96,15 @@ document.getElementById('submit-user').addEventListener('click', function (e) {
     e.preventDefault();
     axios.post(
             'http://127.0.0.1:8000/api/add_user', {
-                name: document.getElementById('name-user').value,
+                nrp: document.getElementById('name-user').value,
                 email: document.getElementById('user-email').value,
                 password: document.getElementById('user-password').value,
                 role_id: document.getElementById('role-id').value
             }, {
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
                 }
             }
         )
@@ -125,6 +144,11 @@ document.addEventListener('click', function (e) {
             axios.delete('http://127.0.0.1:8000/api/delete_user', {
                     params: {
                         id: id_user
+                    },
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token
                     }
                 })
                 .then(response => {
@@ -147,7 +171,13 @@ document.addEventListener('click', function (e) {
         }
     });
 });
-axios.get('http://127.0.0.1:8000/api/role')
+axios.get('http://127.0.0.1:8000/api/role', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    })
     .then(function (response) {
         console.log(response.data)
         console.log(response.data)
@@ -161,7 +191,13 @@ axios.get('http://127.0.0.1:8000/api/role')
             select.appendChild(option);
         });
     })
-    axios.get('http://127.0.0.1:8000/api/pegawai')
+axios.get('http://127.0.0.1:8000/api/pegawai', {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    })
     .then(function (response) {
         console.log(response.data.data)
         const select = document.getElementById('edit-name-user');
@@ -186,10 +222,15 @@ document.addEventListener('click', function (e) {
     axios.get('http://127.0.0.1:8000/api/detail_user', {
         params: {
             id: id_user
+        },
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         const data = response.data;
-        document.querySelectorAll('.edit-user').forEach(field => { 
+        document.querySelectorAll('.edit-user').forEach(field => {
             const key = field.dataset.key;
 
             if (data[key] !== undefined) {
@@ -201,15 +242,16 @@ document.addEventListener('click', function (e) {
 document.getElementById('btn-update-user').addEventListener('click', function () {
     axios.put('http://127.0.0.1:8000/api/update_user', {
         id: document.getElementById('edit-user-id').value,
-        name: document.getElementById('edit-name-user').value,
+        nrp: document.getElementById('edit-name-user').value,
         email: document.getElementById('edit-user-email').value,
         password: document.getElementById('edit-user-password').value,
         role_id: document.getElementById('edit-role-id').value,
-        
+
     }, {
         headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
         }
     }).then(response => {
         Swal.fire({

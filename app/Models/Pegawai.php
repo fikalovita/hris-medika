@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use App\Models\Bidang;
 use App\Models\Posisi;
 use App\Models\Provinsi;
@@ -128,5 +129,9 @@ class Pegawai extends Model
     public function perusahaan(): BelongsTo
     {
         return $this->belongsTo(Perusahaan::class, 'kd_perusahaan');
+    }
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'nrp', 'nrp');
     }
 }
